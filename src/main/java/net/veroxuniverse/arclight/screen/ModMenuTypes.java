@@ -1,28 +1,13 @@
 package net.veroxuniverse.arclight.screen;
 
-import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.MenuType;
-import net.minecraftforge.common.extensions.IForgeMenuType;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.network.IContainerFactory;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
+import net.minecraft.screen.ScreenHandlerType;
+import net.minecraft.util.Identifier;
 import net.veroxuniverse.arclight.ArclightMod;
 
 public class ModMenuTypes {
-    public static final DeferredRegister<MenuType<?>> MENUS =
-            DeferredRegister.create(ForgeRegistries.MENU_TYPES, ArclightMod.MODID);
 
-    public static final RegistryObject<MenuType<ArmorForgeMenu>> ARMOR_FORGE_MENU =
-            registerMenuType(ArmorForgeMenu::new, "armor_forge_menu");
+    public static final ScreenHandlerType<ArmorForgeMenu> ARMOR_FORGE_MENU =
+            ScreenHandlerRegistry.registerSimple(new Identifier(ArclightMod.MODID, "armor_forge_menu"), ArmorForgeMenu::new);
 
-    private static <T extends AbstractContainerMenu> RegistryObject<MenuType<T>>
-    registerMenuType(IContainerFactory<T> factory, String name) {
-        return MENUS.register(name, () -> IForgeMenuType.create(factory));
-    }
-
-    public static void register(IEventBus eventBus) {
-        MENUS.register(eventBus);
-    }
 }

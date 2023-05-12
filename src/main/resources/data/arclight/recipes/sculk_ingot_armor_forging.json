@@ -1,7 +1,7 @@
 {
   "type": "arclight:armor_forging",
   "input": {
-    "item": "minecraft:echo_shard"
+    "item": "wildbackport:sculk_catalyst"
   },
   "addition1": {
     "item": "minecraft:copper_ingot"

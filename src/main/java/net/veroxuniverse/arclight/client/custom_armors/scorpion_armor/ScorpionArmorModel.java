@@ -1,24 +1,24 @@
 package net.veroxuniverse.arclight.client.custom_armors.scorpion_armor;
 
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Identifier;
 import net.veroxuniverse.arclight.ArclightMod;
-import net.veroxuniverse.arclight.item.ScorpionArmorItem;
+import net.veroxuniverse.arclight.item.BloodstoneArmorItem;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
 
-public class ScorpionArmorModel extends AnimatedGeoModel<ScorpionArmorItem> {
+public class ScorpionArmorModel extends AnimatedGeoModel<BloodstoneArmorItem> {
     @Override
-    public ResourceLocation  getModelResource(ScorpionArmorItem object) {
-        return new ResourceLocation(ArclightMod.MODID, "geo/scorpion_armor.geo.json");
+    public Identifier  getModelLocation(BloodstoneArmorItem object) {
+        return new Identifier(ArclightMod.MODID, "geo/scorpion_armor.geo.json");
     }
 
     @Override
-    public ResourceLocation getTextureResource(ScorpionArmorItem object) {
-        return new ResourceLocation(ArclightMod.MODID, "textures/models/armor/scorpion_armor_textures.png");
+    public Identifier getTextureLocation(BloodstoneArmorItem object) {
+        return new Identifier(ArclightMod.MODID, "textures/models/armor/scorpion_armor_textures.png");
     }
 
     @Override
-    public ResourceLocation getAnimationResource(ScorpionArmorItem animatable) {
-        return null; //return new ResourceLocation(ArclightMod.MODID, "animations/armor_animation.json");
+    public Identifier getAnimationFileLocation(BloodstoneArmorItem animatable) {
+        return null; //return new Identifier(ArclightMod.MODID, "animations/armor_animation.json");
     }
 
 }

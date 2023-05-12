@@ -8,7 +8,7 @@
     "item": "minecraft:copper_ingot"
   },
   "addition2": {
-    "item": "minecraft:diamond"
+    "item": "minecraft:diamond_block"
   },
   "output": {
     "item": "arclight:copperknight_chestplate"

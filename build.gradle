@@ -1,166 +1,77 @@
-buildscript {
-    repositories {
-        // These repositories are only for Gradle plugins, put any other repositories in the repository block further below
-        maven { url = 'https://maven.minecraftforge.net' }
-        maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
-
-        mavenCentral()
-    }
-    dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
-        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
-    }
-}
-
 plugins {
-    id 'eclipse'
+    id 'fabric-loom' version '0.11-SNAPSHOT'
     id 'maven-publish'
-    id 'net.minecraftforge.gradle' version '5.1.+'
-    id 'org.parchmentmc.librarian.forgegradle' version '1.+'
-
 }
 
-apply plugin: 'org.spongepowered.mixin'
-
-version = '2.0.7-1.19.2'
 group = 'net.veroxuniverse.arclight' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'arclight'
 
 // Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
-java.toolchain.languageVersion = JavaLanguageVersion.of(17)
-
-println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
-minecraft {
-
-    mappings channel: 'parchment', version: '2022.11.27-1.19.2'
-
-    runs {
-        client {
-            workingDirectory project.file('run')
-
-            property 'forge.logging.markers', 'REGISTRIES'
-
-            property 'forge.logging.console.level', 'debug'
-
-            property 'forge.enabledGameTestNamespaces', 'arclight'
-
-            mods {
-                arclight {
-                    source sourceSets.main
-                }
-            }
-        }
-
-        server {
-            workingDirectory project.file('run')
-
-            property 'forge.logging.markers', 'REGISTRIES'
-
-            property 'forge.logging.console.level', 'debug'
-
-            property 'forge.enabledGameTestNamespaces', 'arclight'
-
-            mods {
-                arclight {
-                    source sourceSets.main
-                }
-            }
-        }
-
-        gameTestServer {
-            workingDirectory project.file('run')
-
-            property 'forge.logging.markers', 'REGISTRIES'
-
-            property 'forge.logging.console.level', 'debug'
-
-            property 'forge.enabledGameTestNamespaces', 'arclight'
-
-            mods {
-                arclight {
-                    source sourceSets.main
-                }
-            }
-        }
-
-        data {
-            workingDirectory project.file('run')
-
-            property 'forge.logging.markers', 'REGISTRIES'
-
-            property 'forge.logging.console.level', 'debug'
-
-            args '--mod', 'arclight', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
-
-            mods {
-                arclight {
-                    source sourceSets.main
-                }
-            }
-        }
-    }
-}
-
-mixin {
-    add sourceSets.main, 'arclight.mixins.refmap.json'
-    config 'arclight.mixins.json'
-}
-
-sourceSets.main.resources { srcDir 'src/generated/resources' }
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
 
 repositories {
     maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
+    maven { url 'https://maven.shedaniel.me' }
     maven {
-        // location of the maven that hosts JEI files since January 2023
-        name = "Jared's maven"
-        url = "https://maven.blamejared.com/"
-    }
-    maven {
-        // location of a maven mirror for JEI files, as a fallback
-        name = "ModMaven"
-        url = "https://modmaven.dev"
+        url "https://cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
     }
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.19.2-43.2.6'
+    // To change the versions see the gradle.properties file
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
 
-    implementation fg.deobf( 'software.bernie.geckolib:geckolib-forge-1.19:3.1.40' )
+    modImplementation "software.bernie.geckolib:geckolib-fabric-1.18:${geckolib_version}"
 
     // compile against the JEI API but do not include it at runtime
-    compileOnly(fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}"))
-    compileOnly(fg.deobf("mezz.jei:jei-${mc_version}-forge-api:${jei_version}"))
+    modCompileOnly("me.shedaniel:RoughlyEnoughItems-api-fabric:$rei_version")
+    modCompileOnly("me.shedaniel:RoughlyEnoughItems-default-plugin-fabric:$rei_version")
     // at runtime, use the full JEI jar for Forge
-    runtimeOnly(fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}"))
-
-    annotationProcessor 'org.spongepowered:mixin:0.8.4:processor'
+    modRuntimeOnly("me.shedaniel:RoughlyEnoughItems-fabric:$rei_version")
+    modCompileOnly("curse.maven:show-me-your-skin-622010:3989217")
 }
 
-jar {
-    manifest {
-        attributes([
-                "Specification-Title"     : "arclight",
-                "Specification-Vendor"    : "arclightsareus",
-                "Specification-Version"   : "1", // We are version 1 of ourselves
-                "Implementation-Title"    : project.name,
-                "Implementation-Version"  : project.jar.archiveVersion,
-                "Implementation-Vendor"   : "arclightsareus",
-                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
-        ])
+processResources {
+    inputs.property "version", project.version
+
+    filesMatching("fabric.mod.json") {
+        expand "version": project.version
     }
 }
 
-jar.finalizedBy('reobfJar')
+loom {
+    runs {
+        //
+        // This adds a new gradle task that runs the datagen API: "gradlew runDatagenClient"
+        //
+        datagenClient {
+            inherit client
+            name "Data Generation"
+            vmArg "-Dfabric-api.datagen"
+            vmArg "-Dfabric-api.datagen.output-dir=${file("src/main/generated")}"
+            vmArg "-Dfabric-api.datagen.modid=${archivesBaseName}"
 
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            artifact jar
+            runDir "build/datagen"
         }
     }
-    repositories {
-        maven {
-            url "file://${project.projectDir}/mcmodsrepo"
+}
+
+//
+// Adds the generated files into the jar you distribute to players.
+//
+sourceSets {
+    main {
+        resources {
+            srcDirs += [
+                    'src/main/generated'
+            ]
         }
     }
 }

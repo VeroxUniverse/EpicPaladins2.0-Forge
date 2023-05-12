@@ -2,62 +2,64 @@ package net.veroxuniverse.arclight.recipe;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import net.minecraft.core.NonNullList;
-import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.GsonHelper;
-import net.minecraft.world.SimpleContainer;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.*;
-import net.minecraft.world.level.Level;
+import net.minecraft.inventory.CraftingInventory;
+import net.minecraft.inventory.Inventory;
+import net.minecraft.item.ItemStack;
+import net.minecraft.network.PacketByteBuf;
+import net.minecraft.recipe.*;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.JsonHelper;
+import net.minecraft.util.collection.DefaultedList;
+import net.minecraft.world.World;
 import net.veroxuniverse.arclight.ArclightMod;
+import net.veroxuniverse.arclight.init.BlocksInit;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class ArmorForgeRecipe implements Recipe<SimpleContainer> {
+public class ArmorForgeRecipe implements Recipe<Inventory> {
 
-    private final ResourceLocation id;
+    private final Identifier id;
     private final ItemStack output;
-    private final NonNullList<Ingredient> recipeItems;
+    private final DefaultedList<Ingredient> recipeItems;
 
-    public ArmorForgeRecipe(ResourceLocation id, ItemStack output,
-                                    NonNullList<Ingredient> recipeItems) {
+    public ArmorForgeRecipe(Identifier id, ItemStack output,
+                                    DefaultedList<Ingredient> recipeItems) {
         this.id = id;
         this.output = output;
         this.recipeItems = recipeItems;
     }
 
     @Override
-    public boolean matches(@NotNull SimpleContainer pContainer, Level pLevel) {
-        if(pLevel.isClientSide()) {
+    public boolean matches(@NotNull Inventory pContainer, World pLevel) {
+        if(pLevel.isClient) {
             return false;
         }
-        return recipeItems.get(0).test(pContainer.getItem(0)) && recipeItems.get(1).test(pContainer.getItem(1))
-                && recipeItems.get(2).test(pContainer.getItem(2));
+        return recipeItems.get(0).test(pContainer.getStack(0)) && recipeItems.get(1).test(pContainer.getStack(1))
+                && recipeItems.get(2).test(pContainer.getStack(2));
     }
 
     @Override
-    public @NotNull NonNullList<Ingredient> getIngredients() {
+    public @NotNull DefaultedList<Ingredient> getIngredients() {
         return recipeItems;
     }
 
     @Override
-    public @NotNull ItemStack assemble(@NotNull SimpleContainer pContainer) {
+    public @NotNull ItemStack craft(Inventory c) {
         return output;
     }
 
     @Override
-    public boolean canCraftInDimensions(int pWidth, int pHeight) {
+    public boolean fits(int pWidth, int pHeight) {
         return true;
     }
 
     @Override
-    public @NotNull ItemStack getResultItem() {
+    public @NotNull ItemStack getOutput() {
         return output.copy();
     }
 
     @Override
-    public @NotNull ResourceLocation getId() {
+    public @NotNull Identifier getId() {
         return id;
     }
 
@@ -71,24 +73,32 @@ public class ArmorForgeRecipe implements Recipe<SimpleContainer> {
         return Type.INSTANCE;
     }
 
+    @Override
+    public @NotNull ItemStack createIcon() { return new ItemStack(BlocksInit.ARMOR_FORGE); }
+
     public static class Type implements RecipeType<ArmorForgeRecipe> {
         private Type() { }
         public static final Type INSTANCE = new Type();
         public static final String ID = "armor_forging";
+
+        @Override
+        public String toString() {
+            return ID;
+        }
     }
 
     public static class Serializer implements RecipeSerializer<ArmorForgeRecipe> {
         public static final Serializer INSTANCE = new Serializer();
-        public static final ResourceLocation ID =
-                new ResourceLocation(ArclightMod.MODID, "armor_forging");
+        public static final Identifier ID =
+                new Identifier(ArclightMod.MODID, "armor_forging");
 
         @Override
-        public @NotNull ArmorForgeRecipe fromJson(@NotNull ResourceLocation pRecipeId, @NotNull JsonObject pSerializedRecipe) {
-            ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(pSerializedRecipe, "output"));
+        public @NotNull ArmorForgeRecipe read(@NotNull Identifier pRecipeId, @NotNull JsonObject pSerializedRecipe) {
+            ItemStack output = ShapedRecipe.outputFromJson(JsonHelper.getObject(pSerializedRecipe, "output"));
 
             //removed, no longer searching for an array
             //JsonArray ingredients = GsonHelper.getAsJsonArray(pSerializedRecipe, "ingredients");
-            NonNullList<Ingredient> inputs = NonNullList.withSize(3, Ingredient.EMPTY);
+            DefaultedList<Ingredient> inputs = DefaultedList.ofSize(3, Ingredient.EMPTY);
 
             //removing, we are no longer checking an input array
             /*for (int i = 0; i < inputs.size(); i++) {
@@ -110,25 +120,25 @@ public class ArmorForgeRecipe implements Recipe<SimpleContainer> {
         }
 
         @Override
-        public @Nullable ArmorForgeRecipe fromNetwork(@NotNull ResourceLocation id, FriendlyByteBuf buf) {
-            NonNullList<Ingredient> inputs = NonNullList.withSize(buf.readInt(), Ingredient.EMPTY);
+        public @Nullable ArmorForgeRecipe read(@NotNull Identifier id, PacketByteBuf buf) {
+            DefaultedList<Ingredient> inputs = DefaultedList.ofSize(buf.readInt(), Ingredient.EMPTY);
 
             for (int i = 0; i < inputs.size(); i++) {
-                inputs.set(i, Ingredient.fromNetwork(buf));
+                inputs.set(i, Ingredient.fromPacket(buf));
             }
 
-            ItemStack output = buf.readItem();
+            ItemStack output = buf.readItemStack();
             return new ArmorForgeRecipe(id, output, inputs);
         }
 
         @Override
-        public void toNetwork(FriendlyByteBuf buf, ArmorForgeRecipe recipe) {
+        public void write(PacketByteBuf buf, ArmorForgeRecipe recipe) {
             buf.writeInt(recipe.getIngredients().size());
 
             for (Ingredient ing : recipe.getIngredients()) {
-                ing.toNetwork(buf);
+                ing.write(buf);
             }
-            buf.writeItemStack(recipe.getResultItem(), false);
+            buf.writeItemStack(recipe.getOutput());
         }
     }
 }

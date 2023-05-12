@@ -1,49 +1,46 @@
 package net.veroxuniverse.arclight.block.entities;
 
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.Containers;
-import net.minecraft.world.MenuProvider;
-import net.minecraft.world.SimpleContainer;
-import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.ContainerData;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.ItemStackHandler;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.inventory.Inventories;
+import net.minecraft.inventory.Inventory;
+import net.minecraft.inventory.SimpleInventory;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtList;
+import net.minecraft.screen.NamedScreenHandlerFactory;
+import net.minecraft.screen.PropertyDelegate;
+import net.minecraft.screen.ScreenHandler;
+import net.minecraft.text.LiteralText;
+import net.minecraft.text.Text;
+import net.minecraft.util.collection.DefaultedList;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import net.veroxuniverse.arclight.ArclightMod;
 import net.veroxuniverse.arclight.recipe.ArmorForgeRecipe;
+import net.veroxuniverse.arclight.recipe.ModRecipes;
 import net.veroxuniverse.arclight.screen.ArmorForgeMenu;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
 
-public class ArmorForgeBlockEntity extends BlockEntity implements MenuProvider {
-    private final ItemStackHandler itemHandler = new ItemStackHandler(4){
-        @Override
-        protected void onContentsChanged(int slot) {
-            setChanged();
-        }
-    };
+public class ArmorForgeBlockEntity extends BlockEntity implements NamedScreenHandlerFactory {
+    private final SimpleInventory itemHandler = new SimpleInventory(4);
 
-    private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
-
-    protected final ContainerData data;
+    protected final PropertyDelegate data;
     private int progress = 0;
-    private  int maxProgress = 900;
+    private int maxProgress = 900;
 
     public ArmorForgeBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.ARMOR_BLOCK_ENTIY.get(), pos, state);
-        this. data = new ContainerData() {
+        super(ModBlockEntities.ARMOR_BLOCK_ENTIY, pos, state);
+        this.data = new PropertyDelegate() {
             @Override
             public int get(int index) {
                 return switch (index) {
@@ -62,84 +59,61 @@ public class ArmorForgeBlockEntity extends BlockEntity implements MenuProvider {
             }
 
             @Override
-            public int getCount() {
+            public int size() {
                 return 2;
             }
         };
     }
 
+    public Inventory getInventory() { return this.itemHandler; };
+
     @Override
-    public @NotNull Component getDisplayName() {
-        return Component.literal("Paladin Forge");
+    public @NotNull Text getDisplayName() {
+        return new LiteralText("Paladin Forge");
     }
 
     @Nullable
     @Override
-    public AbstractContainerMenu createMenu(int id, @NotNull Inventory inventory, @NotNull Player player) {
-        return new ArmorForgeMenu(id, inventory, this, this.data);
+    public ScreenHandler createMenu(int id, @NotNull PlayerInventory inventory, @NotNull PlayerEntity player) {
+        return new ArmorForgeMenu(id, inventory, this.itemHandler, this.data);
     }
 
     @Override
-    public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
-        if(cap == ForgeCapabilities.ITEM_HANDLER) {
-            return lazyItemHandler.cast();
-        }
-
-        return super.getCapability(cap, side);
-    }
-
-    @Override
-    public void onLoad(){
-        super.onLoad();
-        lazyItemHandler = LazyOptional.of(() -> itemHandler);
-    }
-
-    @Override
-    public void invalidateCaps() {
-        super.invalidateCaps();
-        lazyItemHandler.invalidate();
-    }
-
-    @Override
-    protected void saveAdditional(CompoundTag nbt) {
-        nbt.put("inventory", itemHandler.serializeNBT());
+    protected void writeNbt(NbtCompound nbt) {
+        super.writeNbt(nbt);
+        nbt.put("Items", this.itemHandler.toNbtList());
         nbt.putInt("armor_forge.progress", this.progress);
-
-        super.saveAdditional(nbt);
     }
 
     @Override
-    public void load(@NotNull CompoundTag nbt) {
-        super.load(nbt);
-        itemHandler.deserializeNBT(nbt.getCompound("inventory"));
-        progress = nbt.getInt("armor_forge.progress");
+    public void readNbt(@NotNull NbtCompound nbt) {
+        super.readNbt(nbt);
+        this.itemHandler.readNbtList((NbtList) nbt.get("Items"));
+        this.progress = nbt.getInt("armor_forge.progress");
     }
 
     public void drops(){
-        SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
-        for (int i = 0; i < itemHandler.getSlots(); i++) {
-            inventory.setItem(i, itemHandler.getStackInSlot(i));
+        if (this.world == null) return;
+        for (int i = 0; i < itemHandler.size(); i++) {
+            Block.dropStack(this.world, this.pos, itemHandler.getStack(i));
         }
-
-        if (this.level != null)
-            Containers.dropContents(this.level, this.worldPosition, inventory);
     }
 
-    public static void tick(Level level, BlockPos pos, BlockState state, ArmorForgeBlockEntity pEntity) {
-        if (level.isClientSide) {
+    public static void tick(World level, BlockPos pos, BlockState state, ArmorForgeBlockEntity pEntity) {
+        if (level.isClient) {
             return;
         }
 
         if (hasRecipe(pEntity)) {
             pEntity.progress++;
-            setChanged(level, pos, state);
+            markDirty(level, pos, state);
 
             if (pEntity.progress >= pEntity.maxProgress) {
                 craftItem(pEntity);
             }
         } else {
             pEntity.resetProgress();
-            setChanged(level,pos, state);
+            markDirty(level,pos, state);
         }
 
     }
@@ -150,22 +124,18 @@ public class ArmorForgeBlockEntity extends BlockEntity implements MenuProvider {
 
     private static void craftItem(ArmorForgeBlockEntity pEntity) {
 
-        Level level = pEntity.level;
-        SimpleContainer inventory = new SimpleContainer(pEntity.itemHandler.getSlots());
-        for (int i = 0; i < pEntity.itemHandler.getSlots(); i++) {
-            inventory.setItem(i, pEntity.itemHandler.getStackInSlot(i));
-        }
+        World level = pEntity.world;
 
         if (level != null) {
             Optional<ArmorForgeRecipe> recipe = level.getRecipeManager()
-                    .getRecipeFor(ArmorForgeRecipe.Type.INSTANCE, inventory, level);
+                    .getFirstMatch(ArclightMod.ARMOR_FORGE_TYPE, pEntity.getInventory(), level);
 
             if (hasRecipe(pEntity) && recipe.isPresent()) {
-                pEntity.itemHandler.extractItem(0, 1, false);
-                pEntity.itemHandler.extractItem(1, 1, false);
-                pEntity.itemHandler.extractItem(2, 1, false);
-                pEntity.itemHandler.setStackInSlot(3, new ItemStack(recipe.get().getResultItem().getItem(),
-                        pEntity.itemHandler.getStackInSlot(3).getCount() + 1));
+                pEntity.itemHandler.getStack(0).decrement(1);
+                pEntity.itemHandler.getStack(1).decrement(1);
+                pEntity.itemHandler.getStack(2).decrement(1);
+                pEntity.itemHandler.setStack(3, new ItemStack(recipe.get().getOutput().getItem(),
+                        pEntity.itemHandler.getStack(3).getCount() + 1));
 
                 pEntity.resetProgress();
             }
@@ -173,27 +143,23 @@ public class ArmorForgeBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     private static boolean hasRecipe(ArmorForgeBlockEntity pEntity) {
-        Level level = pEntity.level;
-        SimpleContainer inventory = new SimpleContainer(pEntity.itemHandler.getSlots());
-        for (int i = 0; i < pEntity.itemHandler.getSlots(); i++) {
-            inventory.setItem(i, pEntity.itemHandler.getStackInSlot(i));
-        }
+        World level = pEntity.world;
 
         if (level != null) {
             Optional<ArmorForgeRecipe> recipe = level.getRecipeManager()
-                    .getRecipeFor(ArmorForgeRecipe.Type.INSTANCE, inventory, level);
+                    .getFirstMatch(ArclightMod.ARMOR_FORGE_TYPE, pEntity.getInventory(), level);
 
-            return recipe.isPresent() && canInsertAmountIntoOutputSlot(inventory) &&
-                    canInsertIntoOutputSlot(inventory, recipe.get().getResultItem());
+            return recipe.isPresent() && canInsertAmountIntoOutputSlot(pEntity.getInventory()) &&
+                    canInsertIntoOutputSlot(pEntity.getInventory(), recipe.get().getOutput());
         }
         return false;
     }
 
-    private static boolean canInsertIntoOutputSlot(SimpleContainer inventory, ItemStack stack) {
-        return inventory.getItem(3).getItem() == stack.getItem() || inventory.getItem(3).isEmpty();
+    private static boolean canInsertIntoOutputSlot(Inventory inventory, ItemStack stack) {
+        return inventory.getStack(3).getItem() == stack.getItem() || inventory.getStack(3).isEmpty();
     }
 
-    private static boolean canInsertAmountIntoOutputSlot(SimpleContainer inventory) {
-        return inventory.getItem(3).getMaxStackSize() > inventory.getItem(3).getCount();
+    private static boolean canInsertAmountIntoOutputSlot(Inventory inventory) {
+        return inventory.getStack(3).getMaxCount() > inventory.getStack(3).getCount();
     }
 }

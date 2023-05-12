@@ -1,20 +1,11 @@
 package net.veroxuniverse.arclight.client.custom_armors.sculk_armor;
 
+import net.veroxuniverse.arclight.client.custom_armors.ArmorBase;
 import net.veroxuniverse.arclight.item.SculkArmorItem;
 import software.bernie.geckolib3.renderers.geo.GeoArmorRenderer;
 
-public class SculkArmorRenderer extends GeoArmorRenderer<SculkArmorItem> {
+public class SculkArmorRenderer extends ArmorBase<SculkArmorItem> {
     public SculkArmorRenderer() {
         super(new SculkArmorModel());
-
-        this.headBone = "armorHead";
-        this.bodyBone = "armorBody";
-        this.rightArmBone = "armorRightArm";
-        this.leftArmBone = "armorLeftArm";
-        this.rightLegBone = "armorRightLeg";
-        this.leftLegBone = "armorLeftLeg";
-        this.rightBootBone = "armorRightBoots";
-        this.leftBootBone = "armorLeftBoots";
-
     }
 }

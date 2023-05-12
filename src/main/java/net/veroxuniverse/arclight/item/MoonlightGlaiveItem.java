@@ -1,12 +1,8 @@
 package net.veroxuniverse.arclight.item;
 
-import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.SwordItem;
-import net.minecraft.world.item.Tier;
-import net.minecraftforge.client.extensions.common.IClientItemExtensions;
-import net.veroxuniverse.arclight.client.custom_items.moonlight_glaive.MoonlightGlaiveRenderer;
-import org.jetbrains.annotations.NotNull;
+import net.minecraft.item.Item;
+import net.minecraft.item.SwordItem;
+import net.minecraft.item.ToolMaterial;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
 import software.bernie.geckolib3.core.controller.AnimationController;
@@ -21,19 +17,8 @@ public class MoonlightGlaiveItem extends SwordItem implements IAnimatable {
 
     private final AnimationFactory FACTORY = GeckoLibUtil.createFactory(this);
 
-    public MoonlightGlaiveItem(Tier toolMaterial, int attackDamage, float attackSpeed, Item.Properties settings) {
+    public MoonlightGlaiveItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Item.Settings settings) {
         super(toolMaterial, attackDamage, attackSpeed, settings);
-    }
-
-    public void initializeClient(@NotNull Consumer<IClientItemExtensions> consumer) {
-        super.initializeClient(consumer);
-        consumer.accept(new IClientItemExtensions() {
-            private final BlockEntityWithoutLevelRenderer renderer = new MoonlightGlaiveRenderer();
-
-            public BlockEntityWithoutLevelRenderer getCustomRenderer() {
-                return this.renderer;
-            }
-        });
     }
 
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {

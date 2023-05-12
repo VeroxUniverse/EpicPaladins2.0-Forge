@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": "arclight",
+  "version": "${version}",
+
+  "name": "Epic-Paladins 2.0",
+  "description": "Adds some Armor, Blocks, Items, Mobs and Bosses!!!!!!",
+  "authors": [
+    "VeroxUniverse",
+    "jlortiz0"
+  ],
+  "contact": {
+    "homepage": "https://github.com/jlortiz0",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+
+  "license": "MIT",
+  "icon": "assets/arclight/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.veroxuniverse.arclight.ArclightMod"
+    ],
+    "client": [
+      "net.veroxuniverse.arclight.client.ArclightClientMod"
+    ],
+    "rei": [
+      "net.veroxuniverse.arclight.compat.JEIArclightPlugin"
+    ],
+    "fabric-datagen": [
+      "net.veroxuniverse.arclight.datagen.GenBlockTags"
+    ]
+  },
+  "mixins": [
+    "arclight.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.14.6",
+    "fabric": "*",
+    "minecraft": "~1.18.2",
+    "java": ">=17"
+  },
+  "suggests": {}
+}

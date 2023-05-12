@@ -1,9 +1,11 @@
 {
   "required": true,
   "package": "net.veroxuniverse.arclight.mixin",
-  "compatibilityLevel": "JAVA_8",
-  "refmap": "arclight.mixins.refmap.json",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "arclight-refmap.json",
   "mixins": [
+    "PlayerEntityMixin",
+    "LivingEntityMixin"
   ],
   "client": [],
   "injectors": {

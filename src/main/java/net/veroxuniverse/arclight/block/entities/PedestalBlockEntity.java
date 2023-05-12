@@ -1,8 +1,8 @@
 package net.veroxuniverse.arclight.block.entities;
 
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.util.math.BlockPos;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
 import software.bernie.geckolib3.core.controller.AnimationController;
@@ -15,7 +15,7 @@ public class PedestalBlockEntity extends BlockEntity implements IAnimatable {
     private final AnimationFactory FACTORY = GeckoLibUtil.createFactory(this);
 
     public PedestalBlockEntity(BlockPos pWorldPosition, BlockState pBlockState) {
-        super(ModBlockEntities.PEDESTAL_BLOCK_ENTITY.get(), pWorldPosition, pBlockState);
+        super(ModBlockEntities.PEDESTAL_BLOCK_ENTITY, pWorldPosition, pBlockState);
     }
 
     @Override

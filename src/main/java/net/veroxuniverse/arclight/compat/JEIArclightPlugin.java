@@ -1,16 +1,15 @@
 package net.veroxuniverse.arclight.compat;
 
-import mezz.jei.api.IModPlugin;
-import mezz.jei.api.JeiPlugin;
-import mezz.jei.api.recipe.RecipeType;
-import mezz.jei.api.registration.IGuiHandlerRegistration;
-import mezz.jei.api.registration.IRecipeCatalystRegistration;
-import mezz.jei.api.registration.IRecipeCategoryRegistration;
-import mezz.jei.api.registration.IRecipeRegistration;
-import net.minecraft.client.Minecraft;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.RecipeManager;
+import me.shedaniel.math.Rectangle;
+import me.shedaniel.rei.api.client.plugins.REIClientPlugin;
+import me.shedaniel.rei.api.client.registry.category.CategoryRegistry;
+import me.shedaniel.rei.api.client.registry.display.DisplayRegistry;
+import me.shedaniel.rei.api.client.registry.screen.ScreenRegistry;
+import me.shedaniel.rei.api.client.registry.screen.SimpleClickArea;
+import me.shedaniel.rei.api.common.category.CategoryIdentifier;
+import me.shedaniel.rei.api.common.display.DisplaySerializerRegistry;
+import me.shedaniel.rei.api.common.util.EntryStacks;
+import net.minecraft.util.Identifier;
 import net.veroxuniverse.arclight.ArclightMod;
 import net.veroxuniverse.arclight.init.BlocksInit;
 import net.veroxuniverse.arclight.recipe.ArmorForgeRecipe;
@@ -20,39 +19,31 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 import java.util.Objects;
 
-@JeiPlugin
-public class JEIArclightPlugin implements IModPlugin {
-    public static final RecipeType<ArmorForgeRecipe> INFUSION_TYPE =
-            new RecipeType<>(ArmorForgeRecipeCategory.UID, ArmorForgeRecipe.class);
+public class JEIArclightPlugin implements REIClientPlugin {
 
-    @Override
-    public @NotNull ResourceLocation getPluginUid() {
-        return new ResourceLocation(ArclightMod.MODID, "jei_plugin");
+    public @NotNull Identifier getPluginUid() {
+        return new Identifier(ArclightMod.MODID, "rei_plugin");
     }
 
     @Override
-    public void registerCategories(IRecipeCategoryRegistration registration) {
-        registration.addRecipeCategories(new
-                ArmorForgeRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
+    public void registerCategories(CategoryRegistry registration) {
+        registration.add(new ArmorForgeRecipeCategory());
+        registration.addWorkstations(ArmorForgeRecipeCategory.UID, EntryStacks.of(BlocksInit.ARMOR_FORGE));
     }
 
     @Override
-    public void registerRecipes(IRecipeRegistration registration) {
-        RecipeManager rm = Objects.requireNonNull(Minecraft.getInstance().level).getRecipeManager();
-
-        List<ArmorForgeRecipe> recipesInfusing = rm.getAllRecipesFor(ArmorForgeRecipe.Type.INSTANCE);
-        registration.addRecipes(INFUSION_TYPE, recipesInfusing);
+    public void registerDisplays(DisplayRegistry registry) {
+        registry.registerFiller(ArmorForgeRecipe.class, ArmorForgeRecipeDisplay::new);
     }
 
     @Override
-    public void registerRecipeCatalysts(IRecipeCatalystRegistration registration){
-        var soulbreeder = new ItemStack(BlocksInit.ARMOR_FORGE.get());
-        registration.addRecipeCatalyst(soulbreeder, ArmorForgeRecipeCategory.RECIPE_TYPE);
+    public void registerScreens(ScreenRegistry registry) {
+        registry.registerContainerClickArea(new Rectangle(105, 33, 10, 40), ArmorForgeScreen.class,
+                ArmorForgeRecipeCategory.UID);
     }
 
     @Override
-    public void registerGuiHandlers(IGuiHandlerRegistration registration)
-    {
-        registration.addRecipeClickArea(ArmorForgeScreen.class, 105, 33, 10, 40, JEIArclightPlugin.INFUSION_TYPE);
+    public void registerDisplaySerializer(DisplaySerializerRegistry registry) {
+        // registry.register(ArmorForgeRecipeCategory.UID, ArmorForgeRecipeDisplay.serializer());
     }
 }

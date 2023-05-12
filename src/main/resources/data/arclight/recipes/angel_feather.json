@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "F": {
+      "item": "minecraft:feather"
+    },
+    "C": {
+      "item": "arclight:arclight_core"
+    },
+    "O": {
+      "item": "origins:orb_of_origin"
+    },
+    "I": {
+      "item": "lightestlamp:lanthanum_ingot"
+    },
+    "H": {
+      "item": "bosses_of_mass_destruction:obsidian_heart"
+    }
+  },
+  "pattern": [
+    "IFI",
+    "COC",
+    "IHI"
+  ],
+  "result": {
+    "item": "arclight:angel_feather"
+  }
+}

@@ -1,11 +1,8 @@
 package net.veroxuniverse.arclight.item;
 
-import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.level.block.Block;
-import net.minecraftforge.client.extensions.common.IClientItemExtensions;
-import net.veroxuniverse.arclight.client.custom_items.pedestal_block_item.PedestalBlockItemRenderer;
-import org.jetbrains.annotations.NotNull;
+import net.minecraft.block.Block;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
 import software.bernie.geckolib3.core.controller.AnimationController;
@@ -19,24 +16,13 @@ import java.util.function.Consumer;
 public class PedestalBlockItem extends BlockItem implements IAnimatable {
     private final AnimationFactory FACTORY = GeckoLibUtil.createFactory(this);
 
-    public PedestalBlockItem(Block block, Properties settings) {
+    public PedestalBlockItem(Block block, Item.Settings settings) {
         super(block, settings);
     }
 
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         //event.getController().setAnimation(new AnimationBuilder().addAnimation("idle", true));
         return PlayState.STOP;
-    }
-
-    public void initializeClient(@NotNull Consumer<IClientItemExtensions> consumer) {
-        super.initializeClient(consumer);
-        consumer.accept(new IClientItemExtensions() {
-            private final BlockEntityWithoutLevelRenderer renderer = new PedestalBlockItemRenderer();
-
-            public BlockEntityWithoutLevelRenderer getCustomRenderer() {
-                return this.renderer;
-            }
-        });
     }
 
     @Override

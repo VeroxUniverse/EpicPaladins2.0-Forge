@@ -1,24 +1,24 @@
 package net.veroxuniverse.arclight.client.custom_items.moonlight_glaive;
 
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Identifier;
 import net.veroxuniverse.arclight.ArclightMod;
 import net.veroxuniverse.arclight.item.MoonlightGlaiveItem;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
 
 public class MoonlightGlaiveModel extends AnimatedGeoModel<MoonlightGlaiveItem> {
     @Override
-    public ResourceLocation getModelResource(MoonlightGlaiveItem object) {
-        return new ResourceLocation(ArclightMod.MODID, "geo/moonlight_glaive.geo.json");
+    public Identifier getModelLocation(MoonlightGlaiveItem object) {
+        return new Identifier(ArclightMod.MODID, "geo/moonlight_glaive.geo.json");
     }
 
     @Override
-    public ResourceLocation getTextureResource(MoonlightGlaiveItem object) {
-        return new ResourceLocation(ArclightMod.MODID, "textures/item/moonlight_glaive.png");
+    public Identifier getTextureLocation(MoonlightGlaiveItem object) {
+        return new Identifier(ArclightMod.MODID, "textures/item/moonlight_glaive.png");
     }
 
     @Override
-    public ResourceLocation getAnimationResource(MoonlightGlaiveItem animatable) {
-        return null; // new ResourceLocation(ArclightMod.MODID, "animations/item_animation.json");
+    public Identifier getAnimationFileLocation(MoonlightGlaiveItem animatable) {
+        return null; // new Identifier(ArclightMod.MODID, "animations/item_animation.json");
     }
 }
 

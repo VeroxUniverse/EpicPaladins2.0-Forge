@@ -1,6 +1,6 @@
 package net.veroxuniverse.arclight.client.custom_items.angel_sword;
 
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Identifier;
 import net.veroxuniverse.arclight.ArclightMod;
 import net.veroxuniverse.arclight.item.AngelSwordItem;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
@@ -8,17 +8,17 @@ import software.bernie.geckolib3.model.AnimatedGeoModel;
 public class AngelSwordModel extends AnimatedGeoModel<AngelSwordItem> {
 
     @Override
-    public ResourceLocation getModelResource(AngelSwordItem object) {
-        return new ResourceLocation(ArclightMod.MODID, "geo/angel_sword.geo.json");
+    public Identifier getModelLocation(AngelSwordItem object) {
+        return new Identifier(ArclightMod.MODID, "geo/angel_sword.geo.json");
     }
 
     @Override
-    public ResourceLocation getTextureResource(AngelSwordItem object) {
-        return new ResourceLocation(ArclightMod.MODID, "textures/item/angel_sword.png");
+    public Identifier getTextureLocation(AngelSwordItem object) {
+        return new Identifier(ArclightMod.MODID, "textures/item/angel_sword.png");
     }
 
     @Override
-    public ResourceLocation getAnimationResource(AngelSwordItem animatable) {
-        return null; // new ResourceLocation(ArclightMod.MODID, "animations/item_animation.json");
+    public Identifier getAnimationFileLocation(AngelSwordItem animatable) {
+        return null; // new Identifier(ArclightMod.MODID, "animations/item_animation.json");
     }
 }

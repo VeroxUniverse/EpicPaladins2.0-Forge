@@ -117,8 +117,8 @@
   "item.arclight.cryorium_hoe": "Cryorium Hoe",
   "item.arclight.cryorium_sword": "Cryorium Sword",
 
-  "itemGroup.arclight_group": "Arclight Weaponry",
-  "itemGroup.arclight_resources": "Arclight Resources",
-  "itemGroup.arclight_building": "Arclight Building"
+  "itemGroup.arclight.arclight_tab": "Arclight Weaponry",
+  "itemGroup.arclight.arclight_resources": "Arclight Resources",
+  "itemGroup.arclight.arclight_building": "Arclight Building"
 
 }
