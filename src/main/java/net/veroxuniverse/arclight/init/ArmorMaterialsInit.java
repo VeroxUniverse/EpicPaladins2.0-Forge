@@ -13,44 +13,44 @@ import java.util.function.Supplier;
 
 public enum ArmorMaterialsInit implements ArmorMaterial {
 
-    ARCLIGHT("arclight", 45, new int[]{6, 10, 13, 6}, 25,
-            SoundEvents.ARMOR_EQUIP_NETHERITE, 4.0F, 0.3F,
+    ARCLIGHT("arclight", 45, new int[]{4, 7, 9, 4}, 25,
+            SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F,
             () -> Ingredient.of(ItemsInit.ARCLIGHT_INGOT.get())),
 
-    ANGEL("angel", -1, new int[]{7, 12, 15, 7}, 30,
-            SoundEvents.ARMOR_EQUIP_NETHERITE, 7.0F, 0.5F,
+    ANGEL("angel", 50, new int[]{5, 8, 10, 5}, 30,
+            SoundEvents.ARMOR_EQUIP_NETHERITE, 3.5F, 0.2F,
             () -> Ingredient.of(ItemsInit.ANGEL_FEATHER.get())),
 
-    CRYO("cryo", 45, new int[]{6, 10, 13, 6}, 25,
-            SoundEvents.ARMOR_EQUIP_NETHERITE, 4.0F, 0.3F,
+    CRYO("cryo", 45, new int[]{4, 7, 9, 4}, 25,
+            SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F,
             () -> Ingredient.of(ItemsInit.CRYORIUM_INGOT.get())),
 
-    MOONLIGHT("moonlight", 45, new int[]{6, 10, 13, 6}, 25,
-            SoundEvents.ARMOR_EQUIP_NETHERITE, 4.0F, 0.3F,
+    MOONLIGHT("moonlight", 45, new int[]{4, 7, 9, 4}, 25,
+            SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F,
             () -> Ingredient.of(ItemsInit.MOONLIGHT_INGOT.get())),
 
-    SHADOW("shadow", 45, new int[]{4, 7, 9, 3}, 25,
-            SoundEvents.ARMOR_EQUIP_NETHERITE, 4.0F, 0.3F,
+    SHADOW("shadow", 45, new int[]{4, 7, 9, 4}, 25,
+            SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F,
             () -> Ingredient.of(ItemsInit.MOONLIGHT_INGOT.get())),
 
-    JADE("jade", 45, new int[]{6, 10, 13, 6}, 25,
-            SoundEvents.ARMOR_EQUIP_NETHERITE, 4.0F, 0.3F,
+    JADE("jade", 45, new int[]{4, 7, 9, 4}, 25,
+            SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F,
             () -> Ingredient.of(ItemsInit.JADE_INGOT.get())),
 
-    SCULK("sculk", 50, new int[]{6, 10, 13, 6}, 25,
-            SoundEvents.ARMOR_EQUIP_NETHERITE, 5.0F, 0.3F,
+    SCULK("sculk", 50, new int[]{4, 7, 9, 4}, 25,
+            SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F,
             () -> Ingredient.of(ItemsInit.SCULK_INGOT.get())),
 
-    SCORPIONSCALE("scorpionscale", 50, new int[]{6, 10, 13, 6}, 25,
-            SoundEvents.ARMOR_EQUIP_NETHERITE, 5.0F, 0.3F,
+    SCORPIONSCALE("scorpionscale", 50, new int[]{4, 7, 9, 4}, 25,
+            SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F,
             () -> Ingredient.of(ItemsInit.BLOODSTONE_INGOT.get())),
 
-    COPPER("copper", 30, new int[]{3, 6, 8, 3}, 25,
-            SoundEvents.ARMOR_EQUIP_NETHERITE, 2.0F, 0.2F,
+    COPPER("copper", 30, new int[]{3, 5, 7, 2}, 25,
+            SoundEvents.ARMOR_EQUIP_NETHERITE, 0.5F, 0.0F,
             () -> Ingredient.of(Items.COPPER_INGOT)),
 
-    STEEL("steel", 30, new int[]{3, 6, 8, 3}, 25,
-            SoundEvents.ARMOR_EQUIP_NETHERITE, 2.0F, 0.2F,
+    STEEL("steel", 30, new int[]{3, 5, 7, 2}, 25,
+            SoundEvents.ARMOR_EQUIP_NETHERITE, 0.5F, 0.0F,
             () -> Ingredient.of(Items.IRON_INGOT));
 
     private static final int[] HEALTH_PER_SLOT = new int[]{13, 15, 16, 11};

@@ -8,7 +8,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.veroxuniverse.arclight.ArclightMod;
-import net.veroxuniverse.arclight.entity.EntityTypes;
+import net.veroxuniverse.arclight.entity.ModEntityTypes;
 import net.veroxuniverse.arclight.item.*;
 import net.veroxuniverse.arclight.util.ArclightModCreativeTabs;
 
@@ -21,13 +21,13 @@ public class ItemsInit {
     //3DItems
 
     public static final RegistryObject<Item> ANGEL_SWORD = ITEMS.register("angel_sword",
-            () -> new AngelSwordItem(ItemMaterialsInit.ARCLIGHT, 7, -2.4f,
+            () -> new AngelSwordItem(ItemMaterialsInit.ARCLIGHT, 10, -2.4f,
                     new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB).rarity(Rarity.EPIC)));
     public static final RegistryObject<Item> MOONLIGHT_GLAIVE = ITEMS.register("moonlight_glaive",
-            () -> new MoonlightGlaiveItem(ItemMaterialsInit.MOONLIGHT, 6, -3.0f,
+            () -> new MoonlightGlaiveItem(ItemMaterialsInit.MOONLIGHT, 11, -2.2f,
                     new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB).rarity(Rarity.EPIC)));
  public static final RegistryObject<Item> CRYORIUM_BATTLE_AXE = ITEMS.register("cryorium_battle_axe",
-         () -> new CryoriumAxeItem(ItemMaterialsInit.CRYORIUM, 8, -3.0f,
+         () -> new CryoriumAxeItem(ItemMaterialsInit.CRYORIUM, 10, -3.0f,
                  new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB).rarity(Rarity.EPIC)));
 
 
@@ -91,7 +91,7 @@ public class ItemsInit {
     public static final RegistryObject<Item> ANGEL_SPAWN = ITEMS.register("angel_spawn",
             () -> new AngelSpawnItem(new Item.Properties().tab(ArclightModCreativeTabs.RESOURCES_TAB).durability(1).rarity(Rarity.RARE)));
     public static final RegistryObject<Item> ANGEL_SPAWN_EGG = ITEMS.register("angel_spawn_egg",
-            () -> new ForgeSpawnEggItem(EntityTypes.ANGEL, 0xE1EF05, 0x6FF2FA,new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
+            () -> new ForgeSpawnEggItem(ModEntityTypes.ANGEL, 0xE1EF05, 0x6FF2FA,new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
 
 
  //Armor
@@ -181,70 +181,70 @@ public class ItemsInit {
     //Tools
 
     public static final RegistryObject<Item> ARCLIGHT_SWORD = ITEMS.register("arclight_sword",
-            () -> new SwordItem(ItemMaterialsInit.ARCLIGHT,2,-2.4f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
+            () -> new SwordItem(ItemMaterialsInit.ARCLIGHT,7,-2.4f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
     public static final RegistryObject<Item> ARCLIGHT_PICKAXE = ITEMS.register("arclight_pickaxe",
-            () -> new PickaxeItem(ItemMaterialsInit.ARCLIGHT,0,-2.8f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
+            () -> new PickaxeItem(ItemMaterialsInit.ARCLIGHT,5,-2.8f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
     public static final RegistryObject<Item> ARCLIGHT_AXE = ITEMS.register("arclight_axe",
-            () -> new AxeItem(ItemMaterialsInit.ARCLIGHT,4,-3f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
+            () -> new AxeItem(ItemMaterialsInit.ARCLIGHT,9,-3f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
     public static final RegistryObject<Item> ARCLIGHT_SHOVEL = ITEMS.register("arclight_shovel",
-            () -> new ShovelItem(ItemMaterialsInit.ARCLIGHT,0,-3f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
+            () -> new ShovelItem(ItemMaterialsInit.ARCLIGHT,5,-3f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
     public static final RegistryObject<Item> ARCLIGHT_HOE = ITEMS.register("arclight_hoe",
-            () -> new HoeItem(ItemMaterialsInit.ARCLIGHT,-4,0f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
+            () -> new HoeItem(ItemMaterialsInit.ARCLIGHT,1,0f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
 
     public static final RegistryObject<Item> JADE_SWORD = ITEMS.register("jade_sword",
-            () -> new SwordItem(ItemMaterialsInit.JADE,3,-2.4f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
+            () -> new SwordItem(ItemMaterialsInit.JADE,7,-2.4f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
     public static final RegistryObject<Item> JADE_PICKAXE = ITEMS.register("jade_pickaxe",
-            () -> new PickaxeItem(ItemMaterialsInit.JADE,1,-2.8f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
+            () -> new PickaxeItem(ItemMaterialsInit.JADE,5,-2.8f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
     public static final RegistryObject<Item> JADE_AXE = ITEMS.register("jade_axe",
-            () -> new AxeItem(ItemMaterialsInit.JADE,5,-3f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
+            () -> new AxeItem(ItemMaterialsInit.JADE,9,-3f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
     public static final RegistryObject<Item> JADE_SHOVEL = ITEMS.register("jade_shovel",
-            () -> new ShovelItem(ItemMaterialsInit.JADE,1,-3f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
+            () -> new ShovelItem(ItemMaterialsInit.JADE,5,-3f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
     public static final RegistryObject<Item> JADE_HOE = ITEMS.register("jade_hoe",
-            () -> new HoeItem(ItemMaterialsInit.JADE,-4,0f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
+            () -> new HoeItem(ItemMaterialsInit.JADE,1,0f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
 
     public static final RegistryObject<Item> MOONLIGHT_SWORD = ITEMS.register("moonlight_sword",
-            () -> new SwordItem(ItemMaterialsInit.MOONLIGHT,3,-2.4f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
+            () -> new SwordItem(ItemMaterialsInit.MOONLIGHT,7,-2.4f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
     public static final RegistryObject<Item> MOONLIGHT_PICKAXE = ITEMS.register("moonlight_pickaxe",
-            () -> new PickaxeItem(ItemMaterialsInit.MOONLIGHT,1,-2.8f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
+            () -> new PickaxeItem(ItemMaterialsInit.MOONLIGHT,5,-2.8f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
     public static final RegistryObject<Item> MOONLIGHT_AXE = ITEMS.register("moonlight_axe",
-            () -> new AxeItem(ItemMaterialsInit.MOONLIGHT,5,-3f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
+            () -> new AxeItem(ItemMaterialsInit.MOONLIGHT,9,-3f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
     public static final RegistryObject<Item> MOONLIGHT_SHOVEL = ITEMS.register("moonlight_shovel",
-            () -> new ShovelItem(ItemMaterialsInit.MOONLIGHT,1,-2.8f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
+            () -> new ShovelItem(ItemMaterialsInit.MOONLIGHT,5,-2.8f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
     public static final RegistryObject<Item> MOONLIGHT_HOE = ITEMS.register("moonlight_hoe",
-            () -> new HoeItem(ItemMaterialsInit.MOONLIGHT,-3,0f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
+            () -> new HoeItem(ItemMaterialsInit.MOONLIGHT,1,0f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
 
     public static final RegistryObject<Item> BLOODSTONE_SWORD = ITEMS.register("bloodstone_sword",
-            () -> new SwordItem(ItemMaterialsInit.BLOODSTONE,2,-2.4f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
+            () -> new SwordItem(ItemMaterialsInit.BLOODSTONE,7,-2.4f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
     public static final RegistryObject<Item> BLOODSTONE_PICKAXE = ITEMS.register("bloodstone_pickaxe",
-            () -> new PickaxeItem(ItemMaterialsInit.BLOODSTONE,0,-2.8f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
+            () -> new PickaxeItem(ItemMaterialsInit.BLOODSTONE,5,-2.8f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
     public static final RegistryObject<Item> BLOODSTONE_AXE = ITEMS.register("bloodstone_axe",
-            () -> new AxeItem(ItemMaterialsInit.BLOODSTONE,1,-3f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
+            () -> new AxeItem(ItemMaterialsInit.BLOODSTONE,9,-3f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
     public static final RegistryObject<Item> BLOODSTONE_SHOVEL = ITEMS.register("bloodstone_shovel",
-            () -> new ShovelItem(ItemMaterialsInit.BLOODSTONE,0,-3f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
+            () -> new ShovelItem(ItemMaterialsInit.BLOODSTONE,5,-3f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
     public static final RegistryObject<Item> BLOODSTONE_HOE = ITEMS.register("bloodstone_hoe",
-            () -> new HoeItem(ItemMaterialsInit.BLOODSTONE,-4,0f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
+            () -> new HoeItem(ItemMaterialsInit.BLOODSTONE,1,0f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
 
     public static final RegistryObject<Item> CRYORIUM_SWORD = ITEMS.register("cryorium_sword",
-            () -> new SwordItem(ItemMaterialsInit.CRYORIUM,2,-2.4f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
+            () -> new SwordItem(ItemMaterialsInit.CRYORIUM,7,-2.4f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
     public static final RegistryObject<Item> CRYORIUM_PICKAXE = ITEMS.register("cryorium_pickaxe",
-            () -> new PickaxeItem(ItemMaterialsInit.CRYORIUM,0,-2.8f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
+            () -> new PickaxeItem(ItemMaterialsInit.CRYORIUM,5,-2.8f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
     public static final RegistryObject<Item> CRYORIUM_AXE = ITEMS.register("cryorium_axe",
-            () -> new AxeItem(ItemMaterialsInit.CRYORIUM,1,-3f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
+            () -> new AxeItem(ItemMaterialsInit.CRYORIUM,9,-3f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
     public static final RegistryObject<Item> CRYORIUM_SHOVEL = ITEMS.register("cryorium_shovel",
-            () -> new ShovelItem(ItemMaterialsInit.CRYORIUM,0,-3f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
+            () -> new ShovelItem(ItemMaterialsInit.CRYORIUM,5,-3f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
     public static final RegistryObject<Item> CRYORIUM_HOE = ITEMS.register("cryorium_hoe",
-            () -> new HoeItem(ItemMaterialsInit.CRYORIUM,-4,0f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
+            () -> new HoeItem(ItemMaterialsInit.CRYORIUM,1,0f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
 
     public static final RegistryObject<Item> SCULK_SWORD = ITEMS.register("sculk_sword",
-            () -> new SwordItem(ItemMaterialsInit.SCULK,3,-2.4f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
+            () -> new SwordItem(ItemMaterialsInit.SCULK,7,-2.4f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
     public static final RegistryObject<Item> SCULK_PICKAXE = ITEMS.register("sculk_pickaxe",
-            () -> new PickaxeItem(ItemMaterialsInit.SCULK,1,-2.8f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
+            () -> new PickaxeItem(ItemMaterialsInit.SCULK,5,-2.8f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
     public static final RegistryObject<Item> SCULK_AXE = ITEMS.register("sculk_axe",
-            () -> new AxeItem(ItemMaterialsInit.SCULK,5,-3f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
+            () -> new AxeItem(ItemMaterialsInit.SCULK,9,-3f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
     public static final RegistryObject<Item> SCULK_SHOVEL = ITEMS.register("sculk_shovel",
-            () -> new ShovelItem(ItemMaterialsInit.SCULK,1,-2.8f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
+            () -> new ShovelItem(ItemMaterialsInit.SCULK,5,-2.8f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
     public static final RegistryObject<Item> SCULK_HOE = ITEMS.register("sculk_hoe",
-            () -> new HoeItem(ItemMaterialsInit.SCULK,-3,0f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
+            () -> new HoeItem(ItemMaterialsInit.SCULK,1,0f, new Item.Properties().tab(ArclightModCreativeTabs.ARCLIGHT_TAB)));
 
 
     //Blocks

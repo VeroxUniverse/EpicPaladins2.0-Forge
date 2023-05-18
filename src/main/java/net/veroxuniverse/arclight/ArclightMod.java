@@ -11,7 +11,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.veroxuniverse.arclight.block.entities.ModBlockEntities;
-import net.veroxuniverse.arclight.entity.EntityTypes;
+import net.veroxuniverse.arclight.entity.ModEntityTypes;
 import net.veroxuniverse.arclight.entity.client.AngelRenderer;
 import net.veroxuniverse.arclight.init.BlocksInit;
 import net.veroxuniverse.arclight.init.ItemsInit;
@@ -46,7 +46,7 @@ public class ArclightMod {
         ItemsInit.register(modEventBus);
         BlocksInit.register(modEventBus);
 
-        EntityTypes.register(modEventBus);
+        ModEntityTypes.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
@@ -63,7 +63,7 @@ public class ArclightMod {
         public static void onClientSetup(FMLClientSetupEvent event){
 
             MenuScreens.register(ModMenuTypes.ARMOR_FORGE_MENU.get(), ArmorForgeScreen::new);
-            EntityRenderers.register(EntityTypes.ANGEL.get(), AngelRenderer::new);
+            EntityRenderers.register(ModEntityTypes.ANGEL.get(), AngelRenderer::new);
         }
     }
 

@@ -11,7 +11,7 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.veroxuniverse.arclight.entity.EntityTypes;
+import net.veroxuniverse.arclight.entity.ModEntityTypes;
 import net.veroxuniverse.arclight.entity.custom.AngelEntity;
 import net.veroxuniverse.arclight.init.BlocksInit;
 import org.jetbrains.annotations.NotNull;
@@ -35,7 +35,7 @@ public class AngelSpawnItem extends Item {
 
                 if (isValuableBlock(blockBelow)) {
                     Level level = pContext.getLevel();
-                    AngelEntity spawnAngel = EntityTypes.ANGEL.get().create(level);
+                    AngelEntity spawnAngel = ModEntityTypes.ANGEL.get().create(level);
                     if (spawnAngel != null) {
                         spawnAngel.setPos(positionClicked.getX(), positionClicked.getY() + 15, positionClicked.getZ());
                         level.addFreshEntity(spawnAngel);

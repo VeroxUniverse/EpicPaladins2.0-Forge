@@ -72,7 +72,7 @@ public class AngelEntity extends FlyingMob implements IAnimatable, Enemy {
 
     private final AnimationFactory FACTORY = GeckoLibUtil.createFactory(this);
 
-    public AngelEntity(EntityType<? extends FlyingMob> entityType, Level level) {
+    public AngelEntity(EntityType<? extends AngelEntity> entityType, Level level) {
         super(entityType, level);
         this.setHealth(this.getMaxHealth());
         this.xpReward = 5;
@@ -144,7 +144,7 @@ public class AngelEntity extends FlyingMob implements IAnimatable, Enemy {
 
     private void updateAngelSizeInfo() {
         this.refreshDimensions();
-        //this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue((double)(6 + this.getAngelSize()));
+        this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue((double)(6 + this.getAngelSize()));
     }
 
     public int getAngelSize() {
