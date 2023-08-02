@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "tag": "forge:gems/jade"
+    }
+  },
+  "pattern": [
+    " X",
+    " X",
+    " #"
+  ],
+  "result": {
+    "item": "epicpaladins:jade_sword"
+  }
+}

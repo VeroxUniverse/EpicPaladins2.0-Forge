@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "tag": "forge:gems/jade"
+    },
+    "N": {
+      "item": "minecraft:netherrack"
+    },
+    "T": {
+      "item": "epicpaladins:jade_template"
+    }
+  },
+  "pattern": [
+    "#T#",
+    "#N#",
+    "###"
+  ],
+  "result": {
+    "item": "epicpaladins:jade_template",
+    "count": 2
+  }
+}

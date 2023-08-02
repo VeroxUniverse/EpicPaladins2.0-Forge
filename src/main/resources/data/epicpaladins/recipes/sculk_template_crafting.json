@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:sculk"
+    },
+    "N": {
+      "item": "minecraft:netherrack"
+    },
+    "T": {
+      "item": "minecraft:netherite_upgrade_smithing_template"
+    }
+  },
+  "pattern": [
+    "#T#",
+    "#N#",
+    "###"
+  ],
+  "result": {
+    "item": "epicpaladins:sculk_template"
+  }
+}

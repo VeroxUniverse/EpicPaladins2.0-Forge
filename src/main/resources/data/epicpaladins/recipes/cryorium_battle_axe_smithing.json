@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "tag": "forge:gems/cryorium"
+  },
+  "base": {
+    "item": "epicpaladins:cryorium_axe"
+  },
+  "result": {
+    "item": "epicpaladins:cryorium_battle_axe"
+  },
+  "template": {
+    "item": "epicpaladins:cryorium_template"
+  }
+}

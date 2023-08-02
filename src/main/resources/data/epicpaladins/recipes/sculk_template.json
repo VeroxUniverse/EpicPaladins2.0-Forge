@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:sculk"
+    },
+    "N": {
+      "item": "minecraft:netherrack"
+    },
+    "T": {
+      "item": "epicpaladins:sculk_template"
+    }
+  },
+  "pattern": [
+    "#T#",
+    "#N#",
+    "###"
+  ],
+  "result": {
+    "item": "epicpaladins:sculk_template",
+    "count": 2
+  }
+}

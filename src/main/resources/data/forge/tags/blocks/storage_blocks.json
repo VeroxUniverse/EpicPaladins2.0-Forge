@@ -1,0 +1,10 @@
+{
+  "values": [
+    "#forge:ores/steel",
+    "#forge:ores/arclight",
+    "#forge:ores/bloodstone",
+    "#forge:ores/cryorium",
+    "#forge:ores/jade",
+    "#forge:ores/moonlight"
+  ]
+}

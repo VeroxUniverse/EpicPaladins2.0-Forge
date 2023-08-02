@@ -1,12 +1,5 @@
 {
   "values": [
-    "arclight:arclight_ore",
-    "arclight:bloodstone_ore",
-    "arclight:moonlight_ore",
-    "arclight:jade_ore",
-    "arclight:cryorium_ore",
-    "arclight:deepslate_cryorium_ore",
-    "arclight:deepslate_arclight_ore",
-    "arclight:deepslate_bloodstone_ore"
+
   ]
 }

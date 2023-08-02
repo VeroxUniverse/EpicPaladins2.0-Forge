@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "tag": "forge:gems/bloodstone"
+    },
+    "N": {
+      "item": "minecraft:netherrack"
+    },
+    "T": {
+      "item": "epicpaladins:bloodstone_template"
+    }
+  },
+  "pattern": [
+    "#T#",
+    "#N#",
+    "###"
+  ],
+  "result": {
+    "item": "epicpaladins:bloodstone_template",
+    "count": 2
+  }
+}

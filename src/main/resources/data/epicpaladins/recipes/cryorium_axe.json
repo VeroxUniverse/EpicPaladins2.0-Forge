@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "tag": "forge:gems/cryorium"
+    }
+  },
+  "pattern": [
+    "XX ",
+    "X# ",
+    " # "
+  ],
+  "result": {
+    "item": "epicpaladins:cryorium_axe"
+  }
+}

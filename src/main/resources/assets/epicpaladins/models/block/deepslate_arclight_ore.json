@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "epicpaladins:block/deepslate_arclight_ore"
+  }
+}

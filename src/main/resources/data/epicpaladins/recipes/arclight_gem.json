@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "epicpaladins:arclight_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "epicpaladins:arclight_gem"
+  }
+}

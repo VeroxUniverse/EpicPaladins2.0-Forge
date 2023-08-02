@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:nether_star"
+  },
+  "base": {
+    "item": "minecraft:netherite_leggings"
+  },
+  "result": {
+    "item": "epicpaladins:cryorium_leggings"
+  },
+  "template": {
+    "item": "epicpaladins:cryorium_template"
+  }
+}

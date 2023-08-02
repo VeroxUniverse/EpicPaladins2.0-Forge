@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "epicpaladins:jade_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "epicpaladins:jade_gem"
+  }
+}

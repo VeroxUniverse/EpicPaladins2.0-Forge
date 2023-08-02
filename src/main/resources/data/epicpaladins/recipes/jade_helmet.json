@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:nether_star"
+  },
+  "base": {
+    "item": "minecraft:netherite_helmet"
+  },
+  "result": {
+    "item": "epicpaladins:jade_helmet"
+  },
+  "template": {
+    "item": "epicpaladins:jade_template"
+  }
+}

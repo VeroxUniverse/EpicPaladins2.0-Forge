@@ -1,19 +1,18 @@
 {
   "values": [
-    "arclight:arclight_ore",
-    "arclight:arclight_block",
-    "arclight:jade_ore",
-    "arclight:jade_block",
-    "arclight:moonlight_ore",
-    "arclight:moonlight_block",
-    "arclight:bloodstone_ore",
-    "arclight:bloodstone_block",
-    "arclight:cryorium_ore",
-    "arclight:cryorium_block",
-    "arclight:deepslate_cryorium_ore",
-    "arclight:deepslate_arclight_ore",
-    "arclight:deepslate_bloodstone_ore",
-    "arclight:pedestal_block",
-    "arclight:armor_forge"
+    "epicpaladins:arclight_ore",
+    "epicpaladins:arclight_block",
+    "epicpaladins:jade_ore",
+    "epicpaladins:jade_block",
+    "epicpaladins:moonlight_ore",
+    "epicpaladins:moonlight_block",
+    "epicpaladins:bloodstone_ore",
+    "epicpaladins:bloodstone_block",
+    "epicpaladins:cryorium_ore",
+    "epicpaladins:cryorium_block",
+    "epicpaladins:deepslate_cryorium_ore",
+    "epicpaladins:deepslate_arclight_ore",
+    "epicpaladins:deepslate_bloodstone_ore",
+    "epicpaladins:steel_block"
   ]
 }

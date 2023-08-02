@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "tag": "forge:gems/arclight"
+    }
+  },
+  "pattern": [
+    " X",
+    " X",
+    " #"
+  ],
+  "result": {
+    "item": "epicpaladins:arclight_sword"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "tag": "forge:gems/moonlight"
+  },
+  "base": {
+    "item": "epicpaladins:moonlight_sword"
+  },
+  "result": {
+    "item": "epicpaladins:moonlight_glaive"
+  },
+  "template": {
+    "item": "epicpaladins:moonlight_template"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:nether_star"
+  },
+  "base": {
+    "item": "minecraft:netherite_helmet"
+  },
+  "result": {
+    "item": "epicpaladins:cryorium_helmet"
+  },
+  "template": {
+    "item": "epicpaladins:cryorium_template"
+  }
+}

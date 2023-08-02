@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "tag": "forge:gems/arclight"
+  },
+  "base": {
+    "item": "epicpaladins:arclight_sword"
+  },
+  "result": {
+    "item": "epicpaladins:angel_sword"
+  },
+  "template": {
+    "item": "epicpaladins:arclight_template"
+  }
+}
