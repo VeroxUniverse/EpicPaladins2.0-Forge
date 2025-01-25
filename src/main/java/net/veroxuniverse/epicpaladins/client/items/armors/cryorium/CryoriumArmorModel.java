@@ -2,7 +2,6 @@ package net.veroxuniverse.epicpaladins.client.items.armors.cryorium;
 
 import net.minecraft.resources.ResourceLocation;
 import net.veroxuniverse.epicpaladins.EpicPaladinsMod;
-import net.veroxuniverse.epicpaladins.common.items.armorItems.AngelArmorItem;
 import net.veroxuniverse.epicpaladins.common.items.armorItems.CryoriumArmorItem;
 import software.bernie.geckolib.model.GeoModel;
 

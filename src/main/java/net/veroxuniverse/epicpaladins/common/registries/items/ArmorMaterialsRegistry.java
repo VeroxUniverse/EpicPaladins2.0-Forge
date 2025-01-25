@@ -24,6 +24,14 @@ public enum ArmorMaterialsRegistry implements ArmorMaterial {
     }), 20, SoundEvents.ARMOR_EQUIP_DIAMOND, 2.5F, 0.1F,
             () -> Ingredient.of(ItemsRegistry.ARCLIGHT_GEM.get())),
 
+    ANGEL("angel", 50, Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
+        armor.put(ArmorItem.Type.BOOTS, 7);
+        armor.put(ArmorItem.Type.LEGGINGS, 9);
+        armor.put(ArmorItem.Type.CHESTPLATE, 14);
+        armor.put(ArmorItem.Type.HELMET, 8);
+    }), 20, SoundEvents.ARMOR_EQUIP_DIAMOND, 3.5F, 0.3F,
+            () -> Ingredient.of(ItemsRegistry.ARCLIGHT_GEM.get())),
+
     CRYORIUM("cryorium", 45, Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
         armor.put(ArmorItem.Type.BOOTS, 4);
         armor.put(ArmorItem.Type.LEGGINGS, 7);

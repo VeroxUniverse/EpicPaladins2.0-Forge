@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:nether_star"
+  },
+  "base": {
+    "item": "epicpaladins:arclight_boots"
+  },
+  "result": {
+    "item": "epicpaladins:angel_boots"
+  },
+  "template": {
+    "item": "epicpaladins:arclight_template"
+  }
+}

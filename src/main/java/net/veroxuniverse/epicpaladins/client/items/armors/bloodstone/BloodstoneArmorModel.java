@@ -2,7 +2,6 @@ package net.veroxuniverse.epicpaladins.client.items.armors.bloodstone;
 
 import net.minecraft.resources.ResourceLocation;
 import net.veroxuniverse.epicpaladins.EpicPaladinsMod;
-import net.veroxuniverse.epicpaladins.common.items.armorItems.AngelArmorItem;
 import net.veroxuniverse.epicpaladins.common.items.armorItems.BloodstoneArmorItem;
 import software.bernie.geckolib.model.GeoModel;
 
