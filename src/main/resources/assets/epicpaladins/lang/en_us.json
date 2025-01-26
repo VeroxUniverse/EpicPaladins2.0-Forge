@@ -79,6 +79,10 @@
   "item.epicpaladins.sculk_template": "Sculk Template",
   "item.epicpaladins.steel_template": "Steel Template",
 
+  "tooltip.epicpaladins.sculk_helmet": "Removes Blindness and Darkness effects when worn.",
+  "tooltip.epicpaladins.sculk_leggings": "Increases movement speed when worn.",
+
+
   "block.epicpaladins.arclight_ore": "Arclight Ore",
   "block.epicpaladins.deepslate_arclight_ore": "Deepslate Arclight Ore",
   "block.epicpaladins.cryorium_ore": "Cryorium Ore",
@@ -93,6 +97,12 @@
   "block.epicpaladins.jade_block": "Jade Block",
   "block.epicpaladins.cryorium_block": "Cryorium Block",
   "block.epicpaladins.steel_block": "Steel Block",
+  "angelarmor.chestplate": "This armor gives your elytra flight",
+  "angelarmor.tooltip": "[Hold Shift for Info]",
+  "item.epicpaladins.angel_helmet": "Angel Helmet",
+  "item.epicpaladins.angel_chestplate": "Angel Chestplate",
+  "item.epicpaladins.angel_leggings": "Angel Leggings",
+  "item.epicpaladins.angel_boots": "Angel Boots",
 
   "itemGroup.items.epicpaladins": "Epic Paladins",
   "itemGroup.item.epicpaladins": "Epic Paladins"

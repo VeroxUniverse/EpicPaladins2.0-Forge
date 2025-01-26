@@ -1,16 +1,16 @@
 {
   "values": [
-    "#forge:gems/amethyst",
-    "#forge:gems/diamond",
-    "#forge:gems/emerald",
-    "#forge:gems/lapis",
-    "#forge:gems/prismarine",
-    "#forge:gems/quartz",
-    "#forge:gems/ruby",
-    "#forge:gems/jade",
-    "#forge:gems/arclight",
-    "#forge:gems/moonlight",
-    "#forge:gems/bloodstone",
-    "#forge:gems/cryorium"
+    "#c:gems/amethyst",
+    "#c:gems/diamond",
+    "#c:gems/emerald",
+    "#c:gems/lapis",
+    "#c:gems/prismarine",
+    "#c:gems/quartz",
+    "#c:gems/ruby",
+    "#c:gems/jade",
+    "#c:gems/arclight",
+    "#c:gems/moonlight",
+    "#c:gems/bloodstone",
+    "#c:gems/cryorium"
   ]
 }

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:nether_star"
+  },
+  "base": {
+    "item": "epicpaladins:moonlight_sword"
+  },
+  "result": {
+    "id": "epicpaladins:moonlight_glaive"
+  },
+  "template": {
+    "item": "epicpaladins:moonlight_template"
+  }
+}

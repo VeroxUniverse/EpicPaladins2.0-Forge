@@ -1,10 +1,10 @@
 {
   "values": [
-    "#forge:ores/steel",
-    "#forge:ores/arclight",
-    "#forge:ores/bloodstone",
-    "#forge:ores/cryorium",
-    "#forge:ores/jade",
-    "#forge:ores/moonlight"
+    "#c:ores/steel",
+    "#c:ores/arclight",
+    "#c:ores/bloodstone",
+    "#c:ores/cryorium",
+    "#c:ores/jade",
+    "#c:ores/moonlight"
   ]
 }

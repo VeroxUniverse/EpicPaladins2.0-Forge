@@ -11,7 +11,6 @@ import net.veroxuniverse.epicpaladins.common.items.weapons.AngelSwordItem;
 import net.veroxuniverse.epicpaladins.common.items.weapons.CryoriumAxeItem;
 import net.veroxuniverse.epicpaladins.common.items.weapons.MoonlightGlaiveItem;
 import net.veroxuniverse.epicpaladins.common.registries.items.ArmorMaterialsRegistry;
-import net.veroxuniverse.epicpaladins.common.registries.items.ItemMaterialsRegistry;
 
 public class ItemsRegistry {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(EpicPaladinsMod.MOD_ID);
@@ -34,82 +33,91 @@ public class ItemsRegistry {
     public static final DeferredItem<Item> STEEL_TEMPLATE = ITEMS.registerSimpleItem("steel_template");
 
     public static final DeferredHolder<Item, Item> ARCLIGHT_HELMET = ITEMS.register("arclight_helmet",
-            () -> new ArclightArmorItem(ArmorMaterialsRegistry.ARCLIGHT,ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.HELMET.getDurability(22))));
+            () -> new ArclightArmorItem(ArmorMaterialsRegistry.ARCLIGHT,ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.HELMET.getDurability(22)).rarity(Rarity.EPIC)));
     public static final DeferredHolder<Item, Item> ARCLIGHT_CHESTPLATE = ITEMS.register("arclight_chestplate",
-            () -> new ArclightArmorItem(ArmorMaterialsRegistry.ARCLIGHT,ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.CHESTPLATE.getDurability(22))));
+            () -> new ArclightArmorItem(ArmorMaterialsRegistry.ARCLIGHT,ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.CHESTPLATE.getDurability(22)).rarity(Rarity.EPIC)));
     public static final DeferredHolder<Item, Item> ARCLIGHT_LEGGINGS = ITEMS.register("arclight_leggings",
-            () -> new ArclightArmorItem(ArmorMaterialsRegistry.ARCLIGHT,ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.LEGGINGS.getDurability(22))));
+            () -> new ArclightArmorItem(ArmorMaterialsRegistry.ARCLIGHT,ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.LEGGINGS.getDurability(22)).rarity(Rarity.EPIC)));
     public static final DeferredHolder<Item, Item> ARCLIGHT_BOOTS = ITEMS.register("arclight_boots",
-            () -> new ArclightArmorItem(ArmorMaterialsRegistry.ARCLIGHT,ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.BOOTS.getDurability(22))));
+            () -> new ArclightArmorItem(ArmorMaterialsRegistry.ARCLIGHT,ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.BOOTS.getDurability(22)).rarity(Rarity.EPIC)));
+
+    public static final DeferredHolder<Item, Item> ANGEL_HELMET = ITEMS.register("angel_helmet",
+            () -> new AngelArmorItem(ArmorMaterialsRegistry.ANGEL,ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.HELMET.getDurability(22)).rarity(Rarity.EPIC)));
+    public static final DeferredHolder<Item, Item> ANGEL_CHESTPLATE = ITEMS.register("angel_chestplate",
+            () -> new AngelArmorItem(ArmorMaterialsRegistry.ANGEL,ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.CHESTPLATE.getDurability(22)).rarity(Rarity.EPIC)));
+    public static final DeferredHolder<Item, Item> ANGEL_LEGGINGS = ITEMS.register("angel_leggings",
+            () -> new AngelArmorItem(ArmorMaterialsRegistry.ANGEL,ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.LEGGINGS.getDurability(22)).rarity(Rarity.EPIC)));
+    public static final DeferredHolder<Item, Item> ANGEL_BOOTS = ITEMS.register("angel_boots",
+            () -> new AngelArmorItem(ArmorMaterialsRegistry.ANGEL,ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.BOOTS.getDurability(22)).rarity(Rarity.EPIC)));
 
     public static final DeferredHolder<Item, Item> ASSASSIN_HELMET = ITEMS.register("assassin_helmet",
-            () -> new AssassinArmorItem(ArmorMaterialsRegistry.STEEL,ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.HELMET.getDurability(22))));
+            () -> new AssassinArmorItem(ArmorMaterialsRegistry.STEEL,ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.HELMET.getDurability(22)).rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> ASSASSIN_CHESTPLATE = ITEMS.register("assassin_chestplate",
-            () -> new AssassinArmorItem(ArmorMaterialsRegistry.STEEL,ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.CHESTPLATE.getDurability(22))));
+            () -> new AssassinArmorItem(ArmorMaterialsRegistry.STEEL,ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.CHESTPLATE.getDurability(22)).rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> ASSASSIN_LEGGINGS = ITEMS.register("assassin_leggings",
-            () -> new AssassinArmorItem(ArmorMaterialsRegistry.STEEL,ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.LEGGINGS.getDurability(22))));
+            () -> new AssassinArmorItem(ArmorMaterialsRegistry.STEEL,ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.LEGGINGS.getDurability(22)).rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> ASSASSIN_BOOTS = ITEMS.register("assassin_boots",
-            () -> new AssassinArmorItem(ArmorMaterialsRegistry.STEEL, ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.BOOTS.getDurability(22))));
+            () -> new AssassinArmorItem(ArmorMaterialsRegistry.STEEL, ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.BOOTS.getDurability(22)).rarity(Rarity.RARE)));
 
     public static final DeferredHolder<Item, Item> BLOODSTONE_HELMET = ITEMS.register("bloodstone_helmet",
-            () -> new BloodstoneArmorItem(ArmorMaterialsRegistry.BLOODSTONE,ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.HELMET.getDurability(22))));
+            () -> new BloodstoneArmorItem(ArmorMaterialsRegistry.BLOODSTONE,ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.HELMET.getDurability(22)).rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> BLOODSTONE_CHESTPLATE = ITEMS.register("bloodstone_chestplate",
-            () -> new BloodstoneArmorItem(ArmorMaterialsRegistry.BLOODSTONE,ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.CHESTPLATE.getDurability(22))));
+            () -> new BloodstoneArmorItem(ArmorMaterialsRegistry.BLOODSTONE,ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.CHESTPLATE.getDurability(22)).rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> BLOODSTONE_LEGGINGS = ITEMS.register("bloodstone_leggings",
-            () -> new BloodstoneArmorItem(ArmorMaterialsRegistry.BLOODSTONE,ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.LEGGINGS.getDurability(22))));
+            () -> new BloodstoneArmorItem(ArmorMaterialsRegistry.BLOODSTONE,ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.LEGGINGS.getDurability(22)).rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> BLOODSTONE_BOOTS = ITEMS.register("bloodstone_boots",
-            () -> new BloodstoneArmorItem(ArmorMaterialsRegistry.BLOODSTONE,ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.BOOTS.getDurability(22))));
+            () -> new BloodstoneArmorItem(ArmorMaterialsRegistry.BLOODSTONE,ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.BOOTS.getDurability(22)).rarity(Rarity.RARE)));
 
     public static final DeferredHolder<Item, Item> CRYORIUM_HELMET = ITEMS.register("cryorium_helmet",
-            () -> new CryoriumArmorItem(ArmorMaterialsRegistry.CRYORIUM,ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.HELMET.getDurability(22))));
+            () -> new CryoriumArmorItem(ArmorMaterialsRegistry.CRYORIUM,ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.HELMET.getDurability(22)).rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> CRYORIUM_CHESTPLATE = ITEMS.register("cryorium_chestplate",
-            () -> new CryoriumArmorItem(ArmorMaterialsRegistry.CRYORIUM,ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.CHESTPLATE.getDurability(22))));
+            () -> new CryoriumArmorItem(ArmorMaterialsRegistry.CRYORIUM,ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.CHESTPLATE.getDurability(22)).rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> CRYORIUM_LEGGINGS = ITEMS.register("cryorium_leggings",
-            () -> new CryoriumArmorItem(ArmorMaterialsRegistry.CRYORIUM,ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.LEGGINGS.getDurability(22))));
+            () -> new CryoriumArmorItem(ArmorMaterialsRegistry.CRYORIUM,ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.LEGGINGS.getDurability(22)).rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> CRYORIUM_BOOTS = ITEMS.register("cryorium_boots",
-            () -> new CryoriumArmorItem(ArmorMaterialsRegistry.CRYORIUM,ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.BOOTS.getDurability(22))));
+            () -> new CryoriumArmorItem(ArmorMaterialsRegistry.CRYORIUM,ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.BOOTS.getDurability(22)).rarity(Rarity.RARE)));
 
     public static final DeferredHolder<Item, Item> JADE_HELMET = ITEMS.register("jade_helmet",
-            () -> new JadeArmorItem(ArmorMaterialsRegistry.JADE,ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.HELMET.getDurability(22))));
+            () -> new JadeArmorItem(ArmorMaterialsRegistry.JADE,ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.HELMET.getDurability(22)).rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> JADE_CHESTPLATE = ITEMS.register("jade_chestplate",
-            () -> new JadeArmorItem(ArmorMaterialsRegistry.JADE,ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.CHESTPLATE.getDurability(22))));
+            () -> new JadeArmorItem(ArmorMaterialsRegistry.JADE,ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.CHESTPLATE.getDurability(22)).rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> JADE_LEGGINGS = ITEMS.register("jade_leggings",
-            () -> new JadeArmorItem(ArmorMaterialsRegistry.JADE,ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.LEGGINGS.getDurability(22))));
+            () -> new JadeArmorItem(ArmorMaterialsRegistry.JADE,ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.LEGGINGS.getDurability(22)).rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> JADE_BOOTS = ITEMS.register("jade_boots",
-            () -> new JadeArmorItem(ArmorMaterialsRegistry.JADE,ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.BOOTS.getDurability(22))));
+            () -> new JadeArmorItem(ArmorMaterialsRegistry.JADE,ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.BOOTS.getDurability(22)).rarity(Rarity.RARE)));
 
     public static final DeferredHolder<Item, Item> KNIGHT_HELMET = ITEMS.register("knight_helmet",
-            () -> new KnightArmorItem(ArmorMaterialsRegistry.STEEL,ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.HELMET.getDurability(22))));
+            () -> new KnightArmorItem(ArmorMaterialsRegistry.STEEL,ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.HELMET.getDurability(22)).rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> KNIGHT_CHESTPLATE = ITEMS.register("knight_chestplate",
-            () -> new KnightArmorItem(ArmorMaterialsRegistry.STEEL,ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.CHESTPLATE.getDurability(22))));
+            () -> new KnightArmorItem(ArmorMaterialsRegistry.STEEL,ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.CHESTPLATE.getDurability(22)).rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> KNIGHT_LEGGINGS = ITEMS.register("knight_leggings",
-            () -> new KnightArmorItem(ArmorMaterialsRegistry.STEEL,ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.LEGGINGS.getDurability(22))));
+            () -> new KnightArmorItem(ArmorMaterialsRegistry.STEEL,ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.LEGGINGS.getDurability(22)).rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> KNIGHT_BOOTS = ITEMS.register("knight_boots",
-            () -> new KnightArmorItem(ArmorMaterialsRegistry.STEEL,ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.BOOTS.getDurability(22))));
+            () -> new KnightArmorItem(ArmorMaterialsRegistry.STEEL,ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.BOOTS.getDurability(22)).rarity(Rarity.RARE)));
 
     public static final DeferredHolder<Item, Item> MOONLIGHT_HELMET = ITEMS.register("moonlight_helmet",
-            () -> new MoonlightArmorItem(ArmorMaterialsRegistry.MOONLIGHT,ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.HELMET.getDurability(22))));
+            () -> new MoonlightArmorItem(ArmorMaterialsRegistry.MOONLIGHT,ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.HELMET.getDurability(22)).rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> MOONLIGHT_CHESTPLATE = ITEMS.register("moonlight_chestplate",
-            () -> new MoonlightArmorItem(ArmorMaterialsRegistry.MOONLIGHT,ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.CHESTPLATE.getDurability(22))));
+            () -> new MoonlightArmorItem(ArmorMaterialsRegistry.MOONLIGHT,ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.CHESTPLATE.getDurability(22)).rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> MOONLIGHT_LEGGINGS = ITEMS.register("moonlight_leggings",
-            () -> new MoonlightArmorItem(ArmorMaterialsRegistry.MOONLIGHT,ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.LEGGINGS.getDurability(22))));
+            () -> new MoonlightArmorItem(ArmorMaterialsRegistry.MOONLIGHT,ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.LEGGINGS.getDurability(22)).rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> MOONLIGHT_BOOTS = ITEMS.register("moonlight_boots",
-            () -> new MoonlightArmorItem(ArmorMaterialsRegistry.MOONLIGHT,ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.BOOTS.getDurability(22))));
+            () -> new MoonlightArmorItem(ArmorMaterialsRegistry.MOONLIGHT,ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.BOOTS.getDurability(22)).rarity(Rarity.RARE)));
 
     public static final DeferredHolder<Item, Item> SCULK_HELMET = ITEMS.register("sculk_helmet",
-            () -> new SculkArmorItem(ArmorMaterialsRegistry.SCULK,ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.HELMET.getDurability(22))));
+            () -> new SculkArmorItem(ArmorMaterialsRegistry.SCULK,ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.HELMET.getDurability(22)).rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> SCULK_CHESTPLATE = ITEMS.register("sculk_chestplate",
-            () -> new SculkArmorItem(ArmorMaterialsRegistry.SCULK,ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.CHESTPLATE.getDurability(22))));
+            () -> new SculkArmorItem(ArmorMaterialsRegistry.SCULK,ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.CHESTPLATE.getDurability(22)).rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> SCULK_LEGGINGS = ITEMS.register("sculk_leggings",
-            () -> new SculkArmorItem(ArmorMaterialsRegistry.SCULK,ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.LEGGINGS.getDurability(22))));
+            () -> new SculkArmorItem(ArmorMaterialsRegistry.SCULK,ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.LEGGINGS.getDurability(22)).rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> SCULK_BOOTS = ITEMS.register("sculk_boots",
-            () -> new SculkArmorItem(ArmorMaterialsRegistry.SCULK, ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.BOOTS.getDurability(22))));
+            () -> new SculkArmorItem(ArmorMaterialsRegistry.SCULK, ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.BOOTS.getDurability(22)).rarity(Rarity.RARE)));
 
 
     public static final DeferredHolder<Item, Item> ARCLIGHT_SWORD = ITEMS.register("arclight_sword",
             () -> new SwordItem(Tiers.NETHERITE, new Item.Properties()
                     .attributes(SwordItem.createAttributes(Tiers.NETHERITE, 8, -2.2F))
-                    .rarity(Rarity.UNCOMMON)));
+                    .rarity(Rarity.EPIC)));
     public static final DeferredHolder<Item, Item> ARCLIGHT_PICKAXE = ITEMS.register("arclight_pickaxe",
             () -> new PickaxeItem(Tiers.NETHERITE, new Item.Properties()
                     .attributes(PickaxeItem.createAttributes(Tiers.NETHERITE, 5, -2.5F))

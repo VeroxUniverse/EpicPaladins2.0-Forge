@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:sculk"
+    },
+    "N": {
+      "item": "minecraft:echo_shard"
+    },
+    "T": {
+      "item": "epicpaladins:sculk_template"
+    }
+  },
+  "pattern": [
+    "#T#",
+    "#N#",
+    "###"
+  ],
+  "result": {
+    "id": "epicpaladins:sculk_template",
+    "count": 2
+  }
+}

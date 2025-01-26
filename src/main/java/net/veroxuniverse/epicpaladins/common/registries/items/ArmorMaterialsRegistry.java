@@ -1,11 +1,8 @@
 package net.veroxuniverse.epicpaladins.common.registries.items;
 
-import com.google.common.base.Suppliers;
 import net.minecraft.Util;
-import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
@@ -16,11 +13,9 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.veroxuniverse.epicpaladins.EpicPaladinsMod;
 import net.veroxuniverse.epicpaladins.common.registries.ItemsRegistry;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.EnumMap;
 import java.util.List;
-import java.util.function.Supplier;
 
 public class ArmorMaterialsRegistry {
     public static final DeferredRegister<ArmorMaterial> ARMOR_MATERIALS = DeferredRegister.create(Registries.ARMOR_MATERIAL, EpicPaladinsMod.MOD_ID);
@@ -39,6 +34,21 @@ public class ArmorMaterialsRegistry {
                     2.5F,
                     0.1F
             ));
+
+    public static DeferredHolder<ArmorMaterial, ArmorMaterial> ANGEL = ARMOR_MATERIALS.register("angel", () -> new ArmorMaterial(
+            Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
+                map.put(ArmorItem.Type.BOOTS, 7);
+                map.put(ArmorItem.Type.LEGGINGS, 9);
+                map.put(ArmorItem.Type.CHESTPLATE, 14);
+                map.put(ArmorItem.Type.HELMET, 8);
+            }),
+            20,
+            SoundEvents.ARMOR_EQUIP_DIAMOND,
+            () -> Ingredient.of(ItemsRegistry.ARCLIGHT_GEM.get()),
+            List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(EpicPaladinsMod.MOD_ID, "angel"))),
+            2.5F,
+            0.1F
+    ));
 
     // CRYORIUM Armor Material
     public static DeferredHolder<ArmorMaterial, ArmorMaterial> CRYORIUM =
