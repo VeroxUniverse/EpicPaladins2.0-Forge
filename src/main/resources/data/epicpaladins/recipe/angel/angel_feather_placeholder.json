@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "F": {
+      "tag": "c:feathers"
+    },
+    "A": {
+      "tag": "c:gems/arclight"
+    },
+    "N": {
+      "item": "minecraft:nether_star"
+    }
+  },
+  "pattern": [
+    "ANA",
+    "NFN",
+    "ANA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "epicpaladins:angel_feather",
+    "components": {
+      "minecraft:enchantment_glint_override": true
+    }
+  }
+}

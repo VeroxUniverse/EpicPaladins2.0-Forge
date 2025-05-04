@@ -1,15 +1,21 @@
 {
-  "type": "minecraft:smithing_transform",
-  "addition": {
-    "tag": "c:ingots/steel"
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "X": {
+      "tag": "c:ingots/steel"
+    },
+    "C": {
+      "item": "minecraft:copper_ingot"
+    }
   },
-  "base": {
-    "item": "minecraft:golden_leggings"
-  },
+  "pattern": [
+    "CXC",
+    "X X",
+    "X X"
+  ],
   "result": {
+    "count": 1,
     "id": "epicpaladins:knight_leggings"
-  },
-  "template": {
-    "item": "epicpaladins:steel_template"
   }
 }

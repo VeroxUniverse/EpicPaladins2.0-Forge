@@ -30,16 +30,18 @@ public class ItemsRegistry {
     public static final DeferredItem<Item> JADE_TEMPLATE = ITEMS.registerSimpleItem("jade_template");
     public static final DeferredItem<Item> MOONLIGHT_TEMPLATE = ITEMS.registerSimpleItem("moonlight_template");
     public static final DeferredItem<Item> SCULK_TEMPLATE = ITEMS.registerSimpleItem("sculk_template");
-    public static final DeferredItem<Item> STEEL_TEMPLATE = ITEMS.registerSimpleItem("steel_template");
+
+    public static final DeferredItem<Item> ANGEL_FEATHER = ITEMS.register("angel_feather",
+            () -> new Item(new Item.Properties().rarity(Rarity.EPIC)));
 
     public static final DeferredHolder<Item, Item> ARCLIGHT_HELMET = ITEMS.register("arclight_helmet",
-            () -> new ArclightArmorItem(ArmorMaterialsRegistry.ARCLIGHT,ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.HELMET.getDurability(22)).rarity(Rarity.EPIC)));
+            () -> new ArclightArmorItem(ArmorMaterialsRegistry.ARCLIGHT,ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.HELMET.getDurability(22)).rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> ARCLIGHT_CHESTPLATE = ITEMS.register("arclight_chestplate",
-            () -> new ArclightArmorItem(ArmorMaterialsRegistry.ARCLIGHT,ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.CHESTPLATE.getDurability(22)).rarity(Rarity.EPIC)));
+            () -> new ArclightArmorItem(ArmorMaterialsRegistry.ARCLIGHT,ArmorItem.Type.CHESTPLATE, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.CHESTPLATE.getDurability(22)).rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> ARCLIGHT_LEGGINGS = ITEMS.register("arclight_leggings",
-            () -> new ArclightArmorItem(ArmorMaterialsRegistry.ARCLIGHT,ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.LEGGINGS.getDurability(22)).rarity(Rarity.EPIC)));
+            () -> new ArclightArmorItem(ArmorMaterialsRegistry.ARCLIGHT,ArmorItem.Type.LEGGINGS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.LEGGINGS.getDurability(22)).rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> ARCLIGHT_BOOTS = ITEMS.register("arclight_boots",
-            () -> new ArclightArmorItem(ArmorMaterialsRegistry.ARCLIGHT,ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.BOOTS.getDurability(22)).rarity(Rarity.EPIC)));
+            () -> new ArclightArmorItem(ArmorMaterialsRegistry.ARCLIGHT,ArmorItem.Type.BOOTS, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.BOOTS.getDurability(22)).rarity(Rarity.RARE)));
 
     public static final DeferredHolder<Item, Item> ANGEL_HELMET = ITEMS.register("angel_helmet",
             () -> new AngelArmorItem(ArmorMaterialsRegistry.ANGEL,ArmorItem.Type.HELMET, ItemPropertiesHelper.equipment(1).durability(ArmorItem.Type.HELMET.getDurability(22)).rarity(Rarity.EPIC)));
@@ -116,15 +118,15 @@ public class ItemsRegistry {
 
     public static final DeferredHolder<Item, Item> ARCLIGHT_SWORD = ITEMS.register("arclight_sword",
             () -> new SwordItem(Tiers.NETHERITE, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(Tiers.NETHERITE, 8, -2.2F))
-                    .rarity(Rarity.EPIC)));
+                    .attributes(SwordItem.createAttributes(Tiers.NETHERITE, 4, -2.2F))
+                    .rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> ARCLIGHT_PICKAXE = ITEMS.register("arclight_pickaxe",
             () -> new PickaxeItem(Tiers.NETHERITE, new Item.Properties()
                     .attributes(PickaxeItem.createAttributes(Tiers.NETHERITE, 5, -2.5F))
                     .rarity(Rarity.UNCOMMON)));
     public static final DeferredHolder<Item, Item> ARCLIGHT_AXE = ITEMS.register("arclight_axe",
             () -> new AxeItem(Tiers.NETHERITE, new Item.Properties()
-                    .attributes(AxeItem.createAttributes(Tiers.NETHERITE, 10, -2.8F))
+                    .attributes(AxeItem.createAttributes(Tiers.NETHERITE, 9, -2.8F))
                     .rarity(Rarity.UNCOMMON)));
     public static final DeferredHolder<Item, Item> ARCLIGHT_SHOVEL = ITEMS.register("arclight_shovel",
             () -> new ShovelItem(Tiers.NETHERITE, new Item.Properties()
@@ -132,95 +134,95 @@ public class ItemsRegistry {
                     .rarity(Rarity.UNCOMMON)));
     public static final DeferredHolder<Item, Item> ARCLIGHT_HOE = ITEMS.register("arclight_hoe",
             () -> new HoeItem(Tiers.NETHERITE, new Item.Properties()
-                    .attributes(HoeItem.createAttributes(Tiers.NETHERITE, 2, 0.0F))
+                    .attributes(HoeItem.createAttributes(Tiers.NETHERITE, 2, 0.5F))
                     .rarity(Rarity.UNCOMMON)));
 
     public static final DeferredHolder<Item, Item> JADE_SWORD = ITEMS.register("jade_sword",
             () -> new SwordItem(Tiers.NETHERITE, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(Tiers.NETHERITE, 7, -2.0F))
+                    .attributes(SwordItem.createAttributes(Tiers.NETHERITE, 4, -2.2F))
                     .durability(1750)
                     .rarity(Rarity.UNCOMMON)));
     public static final DeferredHolder<Item, Item> JADE_PICKAXE = ITEMS.register("jade_pickaxe",
             () -> new PickaxeItem(Tiers.NETHERITE, new Item.Properties()
-                    .attributes(PickaxeItem.createAttributes(Tiers.NETHERITE, 4, -2.4F))
+                    .attributes(PickaxeItem.createAttributes(Tiers.NETHERITE, 5, -2.5F))
                     .durability(1750)
                     .rarity(Rarity.UNCOMMON)));
     public static final DeferredHolder<Item, Item> JADE_AXE = ITEMS.register("jade_axe",
             () -> new AxeItem(Tiers.NETHERITE, new Item.Properties()
-                    .attributes(AxeItem.createAttributes(Tiers.NETHERITE, 9, -3.0F))
+                    .attributes(AxeItem.createAttributes(Tiers.NETHERITE, 9, -2.8F))
                     .durability(1750)
                     .rarity(Rarity.UNCOMMON)));
     public static final DeferredHolder<Item, Item> JADE_SHOVEL = ITEMS.register("jade_shovel",
             () -> new ShovelItem(Tiers.NETHERITE, new Item.Properties()
-                    .attributes(ShovelItem.createAttributes(Tiers.NETHERITE, 5, -2.1F))
+                    .attributes(ShovelItem.createAttributes(Tiers.NETHERITE, 6, -2.2F))
                     .durability(1750)
                     .rarity(Rarity.UNCOMMON)));
     public static final DeferredHolder<Item, Item> JADE_HOE = ITEMS.register("jade_hoe",
             () -> new HoeItem(Tiers.NETHERITE, new Item.Properties()
-                    .attributes(HoeItem.createAttributes(Tiers.NETHERITE, 1, 0.5F))
+                    .attributes(HoeItem.createAttributes(Tiers.NETHERITE, 2, 0.5F))
                     .durability(1750)
                     .rarity(Rarity.UNCOMMON)));
 
     public static final DeferredHolder<Item, Item> MOONLIGHT_SWORD = ITEMS.register("moonlight_sword",
             () -> new SwordItem(Tiers.NETHERITE, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(Tiers.NETHERITE, 7, -2.0F))
+                    .attributes(SwordItem.createAttributes(Tiers.NETHERITE, 4, -2.2F))
                     .durability(1750)
                     .rarity(Rarity.UNCOMMON)));
     public static final DeferredHolder<Item, Item> MOONLIGHT_PICKAXE = ITEMS.register("moonlight_pickaxe",
             () -> new PickaxeItem(Tiers.NETHERITE, new Item.Properties()
-                    .attributes(PickaxeItem.createAttributes(Tiers.NETHERITE, 4, -2.4F))
+                    .attributes(PickaxeItem.createAttributes(Tiers.NETHERITE, 5, -2.5F))
                     .durability(1750)
                     .rarity(Rarity.UNCOMMON)));
     public static final DeferredHolder<Item, Item> MOONLIGHT_AXE = ITEMS.register("moonlight_axe",
             () -> new AxeItem(Tiers.NETHERITE, new Item.Properties()
-                    .attributes(AxeItem.createAttributes(Tiers.NETHERITE, 9, -3.0F))
+                    .attributes(AxeItem.createAttributes(Tiers.NETHERITE, 9, -2.8F))
                     .durability(1750)
                     .rarity(Rarity.UNCOMMON)));
     public static final DeferredHolder<Item, Item> MOONLIGHT_SHOVEL = ITEMS.register("moonlight_shovel",
             () -> new ShovelItem(Tiers.NETHERITE, new Item.Properties()
-                    .attributes(ShovelItem.createAttributes(Tiers.NETHERITE, 5, -2.1F))
+                    .attributes(ShovelItem.createAttributes(Tiers.NETHERITE, 6, -2.2F))
                     .durability(1750)
                     .rarity(Rarity.UNCOMMON)));
     public static final DeferredHolder<Item, Item> MOONLIGHT_HOE = ITEMS.register("moonlight_hoe",
             () -> new HoeItem(Tiers.NETHERITE, new Item.Properties()
-                    .attributes(HoeItem.createAttributes(Tiers.NETHERITE, 1, 0.5F))
+                    .attributes(HoeItem.createAttributes(Tiers.NETHERITE, 2, 0.5F))
                     .durability(1750)
                     .rarity(Rarity.UNCOMMON)));
 
     public static final DeferredHolder<Item, Item> BLOODSTONE_SWORD = ITEMS.register("bloodstone_sword",
             () -> new SwordItem(Tiers.NETHERITE, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(Tiers.NETHERITE, 6, -2.2F))
+                    .attributes(SwordItem.createAttributes(Tiers.NETHERITE, 4, -2.2F))
                     .durability(1750)
                     .rarity(Rarity.UNCOMMON)));
     public static final DeferredHolder<Item, Item> BLOODSTONE_PICKAXE = ITEMS.register("bloodstone_pickaxe",
             () -> new PickaxeItem(Tiers.NETHERITE, new Item.Properties()
-                    .attributes(PickaxeItem.createAttributes(Tiers.NETHERITE, 4, -2.4F))
+                    .attributes(PickaxeItem.createAttributes(Tiers.NETHERITE, 5, -2.5F))
                     .durability(1750)
                     .rarity(Rarity.UNCOMMON)));
     public static final DeferredHolder<Item, Item> BLOODSTONE_AXE = ITEMS.register("bloodstone_axe",
             () -> new AxeItem(Tiers.NETHERITE, new Item.Properties()
-                    .attributes(AxeItem.createAttributes(Tiers.NETHERITE, 8, -2.9F))
+                    .attributes(AxeItem.createAttributes(Tiers.NETHERITE, 9, -2.8F))
                     .durability(1750)
                     .rarity(Rarity.UNCOMMON)));
     public static final DeferredHolder<Item, Item> BLOODSTONE_SHOVEL = ITEMS.register("bloodstone_shovel",
             () -> new ShovelItem(Tiers.NETHERITE, new Item.Properties()
-                    .attributes(ShovelItem.createAttributes(Tiers.NETHERITE, 5, -2.1F))
+                    .attributes(ShovelItem.createAttributes(Tiers.NETHERITE, 6, -2.2F))
                     .durability(1750)
                     .rarity(Rarity.UNCOMMON)));
     public static final DeferredHolder<Item, Item> BLOODSTONE_HOE = ITEMS.register("bloodstone_hoe",
             () -> new HoeItem(Tiers.NETHERITE, new Item.Properties()
-                    .attributes(HoeItem.createAttributes(Tiers.NETHERITE, 2, 0.0F))
+                    .attributes(HoeItem.createAttributes(Tiers.NETHERITE, 2, 0.5F))
                     .durability(1750)
                     .rarity(Rarity.UNCOMMON)));
 
     public static final DeferredHolder<Item, Item> CRYORIUM_SWORD = ITEMS.register("cryorium_sword",
             () -> new SwordItem(Tiers.NETHERITE, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(Tiers.NETHERITE, 7, -2.0F))
+                    .attributes(SwordItem.createAttributes(Tiers.NETHERITE, 4, -2.2F))
                     .durability(1750)
                     .rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> CRYORIUM_PICKAXE = ITEMS.register("cryorium_pickaxe",
             () -> new PickaxeItem(Tiers.NETHERITE, new Item.Properties()
-                    .attributes(PickaxeItem.createAttributes(Tiers.NETHERITE, 5, -2.3F))
+                    .attributes(PickaxeItem.createAttributes(Tiers.NETHERITE, 5, -2.5F))
                     .durability(1750)
                     .rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> CRYORIUM_AXE = ITEMS.register("cryorium_axe",
@@ -230,44 +232,44 @@ public class ItemsRegistry {
                     .rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> CRYORIUM_SHOVEL = ITEMS.register("cryorium_shovel",
             () -> new ShovelItem(Tiers.NETHERITE, new Item.Properties()
-                    .attributes(ShovelItem.createAttributes(Tiers.NETHERITE, 6, -2.0F))
+                    .attributes(ShovelItem.createAttributes(Tiers.NETHERITE, 6, -2.2F))
                     .durability(1750)
                     .rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> CRYORIUM_HOE = ITEMS.register("cryorium_hoe",
             () -> new HoeItem(Tiers.NETHERITE, new Item.Properties()
-                    .attributes(HoeItem.createAttributes(Tiers.NETHERITE, 2, 0.0F))
+                    .attributes(HoeItem.createAttributes(Tiers.NETHERITE, 2, 0.5F))
                     .durability(1750)
                     .rarity(Rarity.RARE)));
 
     public static final DeferredHolder<Item, Item> SCULK_SWORD = ITEMS.register("sculk_sword",
             () -> new SwordItem(Tiers.NETHERITE, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(Tiers.NETHERITE, 8, -2.0F))
+                    .attributes(SwordItem.createAttributes(Tiers.NETHERITE, 4, -2.2F))
                     .durability(1750)
-                    .rarity(Rarity.EPIC)));
+                    .rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> SCULK_PICKAXE = ITEMS.register("sculk_pickaxe",
             () -> new PickaxeItem(Tiers.NETHERITE, new Item.Properties()
-                    .attributes(PickaxeItem.createAttributes(Tiers.NETHERITE, 5, -2.2F))
+                    .attributes(PickaxeItem.createAttributes(Tiers.NETHERITE, 5, -2.5F))
                     .durability(1750)
-                    .rarity(Rarity.EPIC)));
+                    .rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> SCULK_AXE = ITEMS.register("sculk_axe",
             () -> new AxeItem(Tiers.NETHERITE, new Item.Properties()
-                    .attributes(AxeItem.createAttributes(Tiers.NETHERITE, 10, -3.0F))
+                    .attributes(AxeItem.createAttributes(Tiers.NETHERITE, 9, -2.8F))
                     .durability(1750)
-                    .rarity(Rarity.EPIC)));
+                    .rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> SCULK_SHOVEL = ITEMS.register("sculk_shovel",
             () -> new ShovelItem(Tiers.NETHERITE, new Item.Properties()
-                    .attributes(ShovelItem.createAttributes(Tiers.NETHERITE, 6, -2.0F))
+                    .attributes(ShovelItem.createAttributes(Tiers.NETHERITE, 6, -2.2F))
                     .durability(1750)
-                    .rarity(Rarity.EPIC)));
+                    .rarity(Rarity.RARE)));
     public static final DeferredHolder<Item, Item> SCULK_HOE = ITEMS.register("sculk_hoe",
             () -> new HoeItem(Tiers.NETHERITE, new Item.Properties()
-                    .attributes(HoeItem.createAttributes(Tiers.NETHERITE, 2, 0.0F))
+                    .attributes(HoeItem.createAttributes(Tiers.NETHERITE, 2, 0.5F))
                     .durability(2000)
-                    .rarity(Rarity.EPIC)));
+                    .rarity(Rarity.RARE)));
 
     public static final DeferredHolder<Item, Item> ANGEL_SWORD = ITEMS.register("angel_sword",
             () -> new AngelSwordItem(Tiers.NETHERITE, new Item.Properties()
-                    .attributes(SwordItem.createAttributes(Tiers.NETHERITE, 9, -2.1F))
+                    .attributes(SwordItem.createAttributes(Tiers.NETHERITE, 10, -2.1F))
                     .rarity(Rarity.EPIC)));
     public static final DeferredHolder<Item, Item> MOONLIGHT_GLAIVE = ITEMS.register("moonlight_glaive",
             () -> new MoonlightGlaiveItem(Tiers.NETHERITE, new Item.Properties()
@@ -277,7 +279,6 @@ public class ItemsRegistry {
             () -> new CryoriumAxeItem(Tiers.NETHERITE, new Item.Properties()
                     .attributes(AxeItem.createAttributes(Tiers.NETHERITE, 12, -3.0F))
                     .rarity(Rarity.EPIC)));
-
 
 
     public static void register(IEventBus eventBus) {

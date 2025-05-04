@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smithing_transform",
   "addition": {
-    "item": "minecraft:nether_star"
+    "item": "epicpaladins:angel_feather"
   },
   "base": {
     "item": "epicpaladins:arclight_helmet"

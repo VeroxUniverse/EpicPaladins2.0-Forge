@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "epicpaladins:cryorium_shovel",
+    "epicpaladins:bloodstone_shovel",
+    "epicpaladins:moonlight_shovel",
+    "epicpaladins:jade_shovel",
+    "epicpaladins:arclight_shovel"
+  ]
+}
